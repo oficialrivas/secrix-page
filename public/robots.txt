@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://secrix.com/sitemap.xml
