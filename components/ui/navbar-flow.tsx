@@ -74,7 +74,7 @@ const ListItem: React.FC<ListItemProps> = ({
     >
       <motion.p
         transition={{ duration: 0.3 }}
-        className='cursor-pointer text-gray-800 dark:text-gray-200 font-medium text-base lg:text-xl whitespace-nowrap hover:opacity-[0.9] hover:text-gray-900 dark:hover:text-white py-1'
+        className='cursor-pointer text-gray-800 dark:text-gray-200 font-medium text-sm lg:text-lg whitespace-nowrap hover:opacity-[0.9] hover:text-gray-900 dark:hover:text-white py-1'
       >
         {element}
       </motion.p>
@@ -258,11 +258,11 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
   return (
     <div className={`sticky top-0 z-50 w-full ${styleName}`}>
       <div className='hidden md:block'>
-        <div className='relative w-full max-w-7xl mx-auto h-24 flex items-center justify-between px-4 lg:px-10'>
+        <div className='relative w-full max-w-5xl mx-auto h-32 flex items-center justify-between px-4 lg:px-8 -translate-x-[2%]'>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={emblemMotion}
-            className='bg-white/15 dark:bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-white/5 font-helvetica text-gray-800 dark:text-gray-200 px-4 lg:px-8 py-3 lg:py-4 rounded-full text-lg lg:text-xl z-10 shrink-0'
+            className='bg-white/10 dark:bg-white/7 backdrop-blur-xl border border-white/20 font-neue-montreal text-gray-800 dark:text-gray-200 px-4 lg:px-8 py-3 lg:py-4 rounded-full text-base lg:text-lg z-10 shrink-0'
           >
             {emblem}
           </motion.div>
@@ -273,7 +273,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
               padding: '8px 20px',
             }}
             animate={navMotion}
-            className='bg-white/15 dark:bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-white/5 font-helvetica rounded-full flex items-center justify-center gap-6 lg:gap-12 z-10 shrink-0'
+            className='bg-white/10 dark:bg-white/7 backdrop-blur-xl border border-white/20 font-neue-montreal rounded-full flex items-center justify-center gap-6 lg:gap-12 z-10 shrink-0'
             onMouseLeave={() => setSelectedSubmenu(null)}
           >
             {links.map((element) => (
@@ -293,7 +293,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
                   >
                     <a
                       href={element.url || '#'}
-                      className='text-white/90 text-base lg:text-xl whitespace-nowrap hover:text-white transition-colors py-1'
+                      className='text-white/90 text-sm lg:text-lg whitespace-nowrap hover:text-white transition-colors py-1'
                     >
                       {element.text}
                     </a>
@@ -306,7 +306,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={switchMotion}
-            className='bg-white/15 dark:bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-white/5 font-helvetica rounded-full p-2 lg:p-3 z-10 shrink-0 flex items-center gap-2 lg:gap-3'
+            className='bg-white/10 dark:bg-white/7 backdrop-blur-xl border border-white/20 font-neue-montreal rounded-full p-2 lg:p-3 z-10 shrink-0 flex items-center gap-2 lg:gap-3'
           >
             {extraIcons.map((icon, idx) => (
               <div key={idx} className='flex items-center justify-center'>
@@ -567,7 +567,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
               animate={emblemMotion}
               className='mr-4 shrink-0'
             >
-              <div className='bg-white/15 dark:bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-white/5 font-helvetica text-gray-800 dark:text-gray-200 px-4 py-2 rounded-full text-base'>
+              <div className='bg-white/15 dark:bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-white/5 font-neue-montreal text-gray-800 dark:text-gray-200 px-4 py-2 rounded-full text-base'>
                 {emblem}
               </div>
             </motion.div>
@@ -615,7 +615,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
             className='absolute left-0 right-0 top-full z-40 overflow-y-auto border-t border-white/20 bg-white/10 dark:bg-white/5 backdrop-blur-md'
           >
             <div className='container py-4 px-4'>
-              <nav className='flex flex-col space-y-3 font-helvetica'>
+              <nav className='flex flex-col space-y-3 font-neue-montreal'>
                 {links.map((element, idx) => (
                   <div key={element.text} className='space-y-2'>
                     {element.submenu ? (

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/config/site";
@@ -12,6 +13,26 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const neueMontreal = localFont({
+  src: "../public/fonts/NeueMontreal-Regular.otf",
+  variable: "--font-neue-montreal",
+});
+
+const neueMontrealMedium = localFont({
+  src: "../public/fonts/NeueMontreal-Medium.otf",
+  variable: "--font-neue-montreal-medium",
+});
+
+const neueMontrealLight = localFont({
+  src: "../public/fonts/NeueMontreal-Light.otf",
+  variable: "--font-neue-montreal-light",
+});
+
+const neueMontrealBold = localFont({
+  src: "../public/fonts/NeueMontreal-Bold.otf",
+  variable: "--font-neue-montreal-bold",
 });
 
 export const metadata: Metadata = {
@@ -66,7 +87,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} dark`}>
+    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} ${neueMontreal.variable} ${neueMontrealMedium.variable} ${neueMontrealLight.variable} ${neueMontrealBold.variable} dark`}>
       <body className="min-h-screen flex flex-col antialiased">
         <main className="flex-1">{children}</main>
         <Footer />

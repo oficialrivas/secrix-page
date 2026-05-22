@@ -110,6 +110,16 @@ body {
   overflow-x: hidden;
 }
 
+@keyframes scale-in {
+  0% { opacity: 0; transform: scale(0.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.animate-card {
+  opacity: 0;
+  animation: scale-in 1.2s ease-out 1s forwards;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -214,4 +224,20 @@ body {
 .font-helvetica {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
+}
+
+.font-neue-montreal {
+  font-family: var(--font-neue-montreal), "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.font-neue-montreal-medium {
+  font-family: var(--font-neue-montreal-medium), "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.font-neue-montreal-light {
+  font-family: var(--font-neue-montreal-light), "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.font-neue-montreal-bold {
+  font-family: var(--font-neue-montreal-bold), "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

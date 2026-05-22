@@ -566,7 +566,8 @@ export default function GlobeWireframe({
           .attr('fill', 'none')
           .attr('stroke', defaultSphereOutlineColor)
           .attr('stroke-width', finalSphereOutlineWidth)
-          .attr('opacity', variant === 'wireframe' ? 1.0 : 0.8);
+          .attr('opacity', variant === 'wireframe' ? 1.0 : 0.8)
+          .attr('filter', 'url(#sphere-blur)');
       }
     } catch (error) {
       console.error('Error creating sphere outline:', error);
@@ -617,7 +618,13 @@ export default function GlobeWireframe({
             : 'default',
           opacity: useResponsive ? (dimensions.width > 0 ? 1 : 0) : 1,
         }}
-      />
+      >
+        <defs>
+          <filter id="sphere-blur">
+            <feGaussianBlur stdDeviation="1.5" />
+          </filter>
+        </defs>
+      </svg>
     </div>
   );
 }
