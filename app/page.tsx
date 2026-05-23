@@ -1,5 +1,5 @@
 import { HeroSection } from "@/components/sections/hero";
-import { ServicesSection } from "@/components/sections/services";
+import GlareCardDemo from "@/components/glare-card-demo-2";
 import { WhyChooseUsSection } from "@/components/sections/why-choose-us";
 import { ProcessSection } from "@/components/sections/process";
 import { TechStackSection } from "@/components/sections/tech-stack";
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <ServicesSection />
+      <GlareCardDemo />
       <WhyChooseUsSection />
       <ProcessSection />
       <TechStackSection />

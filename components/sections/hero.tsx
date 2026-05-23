@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { MotionGrid } from "@/components/ui/motion-grid";
 import GlobeWireframe from "@/components/ui/globe-wireframe";
 import NavbarFlow from "@/components/ui/navbar-flow";
@@ -14,6 +14,7 @@ import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [lineRetract, setLineRetract] = useState(false);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
@@ -65,7 +66,7 @@ export function HeroSection() {
         style={{ textShadow: '0 -2px 0 rgba(255,255,255,0.25), 0 3px 3px rgba(0,0,0,0.8), 0 6px 12px rgba(0,0,0,0.4), 1.5px 0 2px rgba(6,182,212,0.08), -1.5px 0 2px rgba(6,182,212,0.08)' }}>
         <TextSpotlight
           textClassName='text-[120px] font-black font-helvetica tracking-[0.3em] bg-gradient-to-b from-white/20 via-white/5 to-black/25 bg-clip-text'
-          text='SECRIX'
+          text='SECRISK'
           spotlightColor='6, 182, 212'
           animateOnPhone={true}
           spotlightArea={90}
@@ -133,13 +134,41 @@ export function HeroSection() {
           <p className="text-[50px] font-neue-montreal tracking-normal text-white/70 leading-tight uppercase">
             Intelligence
           </p>
-          <p className="text-[25px] font-neue-montreal-light tracking-normal text-white/50 leading-snug mt-[29px] max-w-[280px]">
+          <p className="text-[25px] font-neue-montreal-light tracking-normal text-white/50 leading-snug mt-[39px] max-w-[280px]">
             Monitoring complex environments worldwide
           </p>
+          <div
+            className="mt-[19px] w-[220px] h-5 flex items-center justify-end"
+            onMouseEnter={() => setLineRetract(true)}
+            onMouseLeave={() => setLineRetract(false)}
+          >
+            <motion.div
+              className="h-px w-full bg-white/70 origin-left"
+              initial={{ scaleX: 0, opacity: 0 }}
+              animate={{ scaleX: lineRetract ? 0 : 1, opacity: 0.9 }}
+              transition={{ duration: lineRetract ? 1.6 : 1.4, ease: "easeInOut" }}
+            />
+          </div>
+
+          <div className="mt-[40px] ml-[28px] w-fit">
+            <SpotlightCard
+              className="w-60 h-28 backdrop-blur-xl animate-card rounded-[32px] shadow-2xl shadow-black/40 border border-white/[0.06] relative after:absolute after:inset-0 after:rounded-[32px] after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent after:pointer-events-none"
+              spotlightColor="34, 211, 238"
+              style={{
+                background: "linear-gradient(135deg, rgba(8,12,24,0.15), rgba(0,16,40,0.06))",
+              }}
+            >
+              <div className="w-full h-full flex items-center justify-center px-3 text-center">
+                <p className="text-[20px] font-neue-montreal-light text-white/75 leading-tight">
+                  Precision through insight
+                </p>
+              </div>
+            </SpotlightCard>
+          </div>
         </div>
       </div>
 
-      <div className="absolute top-[46%] left-[-5%] sm:left-[3%] z-10 w-[625px] h-[208px]">
+      <div className="absolute top-[88%] left-[-14%] sm:left-[-4%] z-10 w-[625px] h-[208px] scale-[0.91] origin-left">
         <TextHoverEffect text="OSINT" />
       </div>
 
