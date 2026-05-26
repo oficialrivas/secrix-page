@@ -1,92 +1,64 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Section } from "@/components/ui/section";
-import { MotionGrid } from "@/components/ui/motion-grid";
-import { services } from "@/data";
-import * as Icons from "lucide-react";
+import { motion } from "motion/react";
+import ExpandableCards from "@/components/ui/expandable-cards";
+import { TextSpotlight } from "@/components/ui/text-spotlight";
 
-function getIcon(name: string) {
-  const IconComponent = Icons[name as keyof typeof Icons] as React.ComponentType<{ className?: string }>;
-  return IconComponent ? <IconComponent className="size-6" /> : null;
-}
+const services = [
+  {
+    id: 1,
+    title: "Security Consulting",
+    description: "Strategic advisory services that align security programs with organizational risk, governance, and operational objectives. We design tailored security frameworks that strengthen resilience and support decision-making in complex environments.",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+  },
+  {
+    id: 2,
+    title: "Risk Surveys & Security Audits",
+    description: "Comprehensive assessments that identify vulnerabilities across facilities, operations, and supply chains. Our audits provide actionable recommendations and prioritized mitigation strategies aligned with international best practices.",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+  },
+  {
+    id: 3,
+    title: "Corporate & Law Enforcement Training",
+    description: "Specialized training programs designed to strengthen organizational readiness and crisis response capabilities. From executive security awareness to emergency preparedness, our programs equip teams to operate confidently in high-risk environments.",
+    image: "https://images.unsplash.com/photo-1582136017258-20ab9a4fba4d?w=800&q=80",
+  },
+  {
+    id: 4,
+    title: "Threat & Vulnerability Assessments",
+    description: "Intelligence-led evaluations of emerging and persistent threats impacting people, assets, and operations. We analyze physical, operational, and geopolitical risks to develop targeted mitigation strategies.",
+    image: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=800&q=80",
+  },
+  {
+    id: 5,
+    title: "Security Technology Advisory",
+    description: "Secrisk provides strategic advisory and project management services for organizations implementing advanced security technologies. We oversee the full lifecycle of security system deployments—including video surveillance, access control, and fire detection systems—from design and vendor selection to installation oversight and final commissioning.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+  },
+];
 
 export function ServicesSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  const fadeOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-
   return (
-    <section ref={sectionRef} id="servicios" className="relative overflow-hidden py-20 md:py-28 [mask-image:linear-gradient(to_bottom,transparent_0%,black_50%,black_80%,transparent_100%)]">
-      <motion.div style={{ opacity: fadeOpacity }} className="absolute inset-0">
-        <MotionGrid
-          speed='3s'
-          opacity={0.15}
-          enableGlow={true}
-          lineColor='20, 184, 166'
-          className="w-full h-full"
-        />
-      </motion.div>
+    <section className="relative w-full py-24 z-10 overflow-hidden bg-transparent">
+      <div className="container mx-auto px-6 relative z-10 flex flex-col items-center">
+        <div className="flex flex-col items-center mb-16 text-center">
+          <TextSpotlight
+            textClassName="text-[40px] sm:text-[50px] font-black font-helvetica tracking-[0.1em] bg-gradient-to-b from-white/90 via-white/70 to-white/30 bg-clip-text text-transparent uppercase"
+            text="SERVICES OVERVIEW"
+            spotlightColor="34, 211, 238"
+            animateOnPhone={true}
+          />
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="h-px w-full max-w-[200px] bg-blue-500/50 mt-6 origin-center"
+          />
+        </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <Badge variant="default" className="mb-4 bg-accent/10 text-accent border-accent/20 hover:bg-accent/20">Servicios</Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-gradient-subtle">Soluciones que </span>
-            <span className="text-gradient">impulsan tu negocio</span>
-          </h2>
-          <p className="text-foreground-muted max-w-2xl mx-auto text-lg">
-            Tecnología de vanguardia aplicada a desafíos reales. Cada solución
-            está diseñada para escalar con tu empresa.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
-              <Card className="h-full group glow-border hover:border-accent/30 transition-colors">
-                <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent mb-2 group-hover:bg-accent/20 transition-colors">
-                    {getIcon(service.icon)}
-                  </div>
-                  <CardTitle className="text-xl text-white group-hover:text-accent transition-colors">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-sm leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-foreground-muted">
-                        <Icons.Check className="size-4 text-accent flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+        <div className="w-full max-w-7xl h-[600px] sm:h-[500px]">
+          <ExpandableCards cards={services} defaultExpanded={3} />
         </div>
       </div>
     </section>

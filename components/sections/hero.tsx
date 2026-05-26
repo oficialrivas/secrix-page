@@ -27,8 +27,8 @@ export function HeroSection() {
   const springY = useSpring(mouseY, { stiffness: 300, damping: 25 });
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center [mask-image:linear-gradient(to_bottom,black_0%,black_60%,transparent_100%)]">
-      <motion.div style={{ opacity: fadeOpacity }} className="absolute inset-0">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center">
+      <motion.div style={{ opacity: fadeOpacity }} className="absolute inset-0 [mask-image:linear-gradient(to_bottom,black_0%,black_80%,transparent_100%)] pointer-events-none">
         <MotionGrid
           direction="left"
           speed="3s"
@@ -41,7 +41,7 @@ export function HeroSection() {
         </MotionGrid>
       </motion.div>
 
-      <motion.div style={{ opacity: fadeOpacity }} className="absolute inset-0 pointer-events-none">
+      <motion.div style={{ opacity: fadeOpacity }} className="absolute inset-0 pointer-events-none [mask-image:linear-gradient(to_bottom,black_0%,black_80%,transparent_100%)]">
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-blue-950/40 to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.85)_0%,rgba(0,0,0,0.5)_40%,transparent_70%)]" />
       </motion.div>
@@ -168,12 +168,12 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute top-[88%] left-[-14%] sm:left-[-4%] z-10 w-[625px] h-[208px] scale-[0.91] origin-left">
+      <div className="absolute top-[55%] sm:top-[58%] left-[2%] sm:left-[5%] z-0 w-[625px] h-[208px] scale-[0.8] sm:scale-[0.91] origin-left opacity-60">
         <TextHoverEffect text="OSINT" />
       </div>
 
-      <motion.div style={{ opacity: globeOpacity }} className="relative w-full min-h-screen">
-        <div className="absolute bottom-[-81%] left-1/2 w-full max-w-[1350px] aspect-square -translate-x-1/2">
+      <motion.div style={{ opacity: globeOpacity }} className="absolute inset-0 w-full h-full pointer-events-none [mask-image:linear-gradient(to_bottom,black_0%,black_75%,transparent_100%)]">
+        <div className="absolute top-[50%] sm:top-[40%] left-1/2 w-full max-w-[1200px] aspect-square -translate-x-1/2">
           <GlobeWireframe
             className="w-full h-full opacity-80 sm:opacity-100"
             variant="solid"

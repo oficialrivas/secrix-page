@@ -1,19 +1,17 @@
 import { HeroSection } from "@/components/sections/hero";
-import GlareCardDemo from "@/components/glare-card-demo-2";
-import { WhyChooseUsSection } from "@/components/sections/why-choose-us";
-import { ProcessSection } from "@/components/sections/process";
-import { TechStackSection } from "@/components/sections/tech-stack";
-import { CTASection } from "@/components/sections/cta";
+import { AboutSection } from "@/components/sections/about";
+import { ApproachSection } from "@/components/sections/approach";
+import { ServicesSection } from "@/components/sections/services";
+import { ContactSection } from "@/components/sections/contact";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <GlareCardDemo />
-      <WhyChooseUsSection />
-      <ProcessSection />
-      <TechStackSection />
-      <CTASection />
+      <AboutSection />
+      <ApproachSection />
+      <ServicesSection />
+      <ContactSection />
     </>
   );
 }

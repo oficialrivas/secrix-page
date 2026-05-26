@@ -81,6 +81,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { GlobalBackground } from "@/components/layout/global-background";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -88,8 +90,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable} ${neueMontreal.variable} ${neueMontrealMedium.variable} ${neueMontrealLight.variable} ${neueMontrealBold.variable} dark`}>
-      <body className="min-h-screen flex flex-col antialiased">
-        <main className="flex-1">{children}</main>
+      <body className="min-h-screen flex flex-col antialiased bg-[#060a16]">
+        <main className="flex-1 relative z-10">{children}</main>
         <Footer />
       </body>
     </html>

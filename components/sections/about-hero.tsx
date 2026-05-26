@@ -49,7 +49,10 @@ const itemVariants = {
     opacity: 1,
     scale: 1,
     y: 0,
-    transition: { duration: 1.0, ease: "easeOut" as const },
+    transition: {
+      duration: 1.0,
+      ease: "easeOut" as const,
+    },
   },
 };
 
@@ -58,18 +61,22 @@ export function AboutHero({ className }: AboutHeroProps) {
     "Secrisk International is a global security and risk management firm with operations across Latin America. For over two decades, the company has delivered intelligence-driven solutions focused on risk mitigation, asset protection, and crisis management.";
 
   const sortedImages = [
-    galleryImages[0], galleryImages[3],
-    galleryImages[1], galleryImages[4],
-    galleryImages[2], galleryImages[5],
+    galleryImages[0],
+    galleryImages[3],
+    galleryImages[1],
+    galleryImages[4],
+    galleryImages[2],
+    galleryImages[5],
   ];
 
   return (
     <section className={cn("relative overflow-hidden", className)}>
-      <div className="relative z-10 mx-auto my-20 grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 md:my-28 md:grid-cols-2 md:gap-16 md:px-8">
-        <div className="max-w-xl">
-          <AnimatedBlurTitle className="text-white font-neue-montreal-medium text-[42px] sm:text-[50px] md:text-[58px] lg:text-[66px] leading-[1.02] tracking-[-0.045em] uppercase pb-10">
-            <span className="block">ABOUT SECRISK</span>
-            <span className="block">INTERNATIONAL</span>
+      <div className="relative z-10 my-20 ml-[8vw] mr-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 md:my-28 md:grid-cols-2 md:gap-16 md:px-8">
+        {/* LEFT CONTENT */}
+        <div className="max-w-[1400px] relative -translate-x-16 lg:-translate-x-24">
+          <AnimatedBlurTitle className="max-w-[1100px] text-white font-neue-montreal-medium text-[50px] sm:text-[62px] md:text-[72px] lg:text-[96px] leading-[0.95] tracking-[-0.05em] uppercase pb-10 whitespace-nowrap">
+            ABOUT SECRISK <br />
+            INTERNATIONAL
           </AnimatedBlurTitle>
 
           <motion.p
@@ -77,7 +84,7 @@ export function AboutHero({ className }: AboutHeroProps) {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-6 max-w-lg text-lg text-zinc-400 sm:text-xl md:text-2xl font-neue-montreal-light"
+            className="mt-6 max-w-[1100px] text-xl text-zinc-400 sm:text-2xl md:text-[2rem] font-neue-montreal-light leading-[1.1]"
           >
             {description}
           </motion.p>
@@ -95,9 +102,11 @@ export function AboutHero({ className }: AboutHeroProps) {
           </motion.div>
         </div>
 
-        <div className="relative overflow-hidden rounded-2xl p-3">
+        {/* RIGHT GALLERY */}
+        <div className="relative overflow-visible rounded-2xl p-3">
           <motion.div
-            className="grid grid-cols-2 gap-3 overflow-hidden"
+              style={{ transform: "translateX(180px)" }}
+  className="grid grid-cols-2 gap-3 overflow-visible"
             variants={galleryVariants}
             initial="hidden"
             whileInView="visible"
@@ -105,9 +114,11 @@ export function AboutHero({ className }: AboutHeroProps) {
           >
             {sortedImages.map((image, index) => (
               <motion.div
-                key={image.alt}
+                key={`${image.alt}-${index}`}
                 variants={itemVariants}
-                className={`overflow-hidden rounded-xl shadow-sm ring-1 shadow-black/20 ring-white/[0.06] ${index >= 3 ? "mt-10" : ""}`}
+                className={`overflow-hidden rounded-xl shadow-sm ring-1 shadow-black/20 ring-white/[0.06] ${
+                  index >= 3 ? "mt-10" : ""
+                }`}
               >
                 <img
                   src={image.url}
