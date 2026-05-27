@@ -48,7 +48,7 @@ export function ServicesSection() {
 
       return (
         <div
-          className="relative h-full w-full overflow-hidden rounded-[32px] border border-white/[0.06] shadow-2xl shadow-black/40 backdrop-blur-xl select-none after:pointer-events-none after:absolute after:inset-0 after:rounded-[32px] after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent"
+          className="relative h-full w-full overflow-hidden rounded-[40px] shadow-2xl shadow-black/40 backdrop-blur-xl select-none after:pointer-events-none after:absolute after:inset-0 after:rounded-[40px] after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent"
           style={{
             background: "linear-gradient(135deg, rgba(8,12,24,0.15), rgba(0,16,40,0.06))",
           }}

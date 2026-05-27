@@ -44,7 +44,7 @@ export default function ExpandableCards({
           <motion.div
             key={card.id}
             layout
-            className='relative h-full overflow-hidden rounded-3xl cursor-pointer group border border-white/[0.05] hover:border-blue-300/35 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl shadow-black/40'
+            className='relative h-full overflow-hidden rounded-[40px] cursor-pointer group hover:border-blue-300/35 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl shadow-black/40'
             variants={cardVariants}
             initial={isExpanded ? 'expanded' : 'collapsed'}
             animate={isExpanded ? 'expanded' : 'collapsed'}
@@ -54,7 +54,7 @@ export default function ExpandableCards({
             {isExpanded && (
               <motion.div
                 layoutId='services-active-glow'
-                className='pointer-events-none absolute inset-0 rounded-3xl border border-blue-200/25 bg-[radial-gradient(120%_90%_at_70%_80%,rgba(191,219,254,0.18)_0%,rgba(59,130,246,0.08)_38%,transparent_72%)]'
+                className='pointer-events-none absolute inset-0 rounded-[40px] border border-blue-200/25 bg-[radial-gradient(120%_90%_at_70%_80%,rgba(191,219,254,0.18)_0%,rgba(59,130,246,0.08)_38%,transparent_72%)]'
                 transition={{ duration: 0.5, ease: elegantEase }}
               />
             )}

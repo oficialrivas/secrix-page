@@ -124,7 +124,7 @@ export const ProductCard = ({
           src={product.thumbnail}
           height="600"
           width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-[20px] shadow-lg border border-white/10 opacity-[0.85] group-hover/product:opacity-100 transition-opacity duration-300"
+          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-[20px] shadow-lg border border-white/10 opacity-[0.5] group-hover/product:opacity-100 transition-opacity duration-300"
           alt={product.title}
         />
       </Link>
