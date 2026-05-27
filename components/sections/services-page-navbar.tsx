@@ -1,0 +1,28 @@
+"use client";
+
+import NavbarFlow from "@/components/ui/navbar-flow";
+import ScrollXHeading from "@/components/heading";
+import ThemeSwitchIcon from "@/components/demos/themeswitchicon";
+import Link from "next/link";
+
+export function ServicesPageNavbar() {
+  return (
+    <div className="fixed top-[3%] left-0 right-0 z-50">
+      <NavbarFlow
+        emblem={
+          <Link href="/" aria-label="Ir a inicio" className="cursor-pointer">
+            <ScrollXHeading className="w-auto! h-4! sm:h-5! whitespace-nowrap" />
+          </Link>
+        }
+        links={[
+          { text: "Servicios", url: "/servicios" },
+          { text: "Proceso", url: "/#proceso" },
+          { text: "Tecnología", url: "/#tecnologia" },
+          { text: "Contacto", url: "/#contacto" },
+        ]}
+        rightComponent={<ThemeSwitchIcon />}
+        showConnections={false}
+      />
+    </div>
+  );
+}

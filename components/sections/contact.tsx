@@ -3,7 +3,6 @@
 import { motion } from "motion/react";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
-import WavyButton from "@/components/ui/wavy-button";
 
 export function ContactSection() {
   const typewriterWords = [
@@ -22,7 +21,7 @@ export function ContactSection() {
   ];
 
   return (
-    <section className="relative w-full py-24 overflow-hidden z-10 border-t border-white/[0.02]">
+    <section className="relative w-full py-24 md:py-36 overflow-hidden z-10">
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_bottom,rgba(6,182,212,0.05)_0%,transparent_50%)]" />
 
       <div className="container mx-auto px-6 relative z-10">
@@ -32,14 +31,6 @@ export function ContactSection() {
               <TypewriterEffectSmooth words={typewriterWords} />
             </div>
             
-            <p className="mt-6 text-xl font-neue-montreal-light text-white/60 max-w-md">
-              Secure your operations with intelligence-led strategies. Get in touch with our risk management specialists.
-            </p>
-            <div className="mt-10">
-              <WavyButton variant="default" size="lg" className="px-8 text-lg bg-cyan-600/20 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-600/30 hover:text-white transition-all">
-                Request Consultation ↘
-              </WavyButton>
-            </div>
           </div>
 
           <div className="w-full md:w-1/2">

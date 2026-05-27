@@ -53,13 +53,13 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [0, 220]),
     springConfig
   );
   return (
     <div
       ref={ref}
-      className="h-[240vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[220vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       {header && <div className="absolute top-0 left-0 w-full z-20 pointer-events-auto">{header}</div>}
       <motion.div
@@ -69,7 +69,7 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className="pt-[30vh] sm:pt-[50vh] md:pt-[70vh] z-10"
+        className="pt-[85vh] sm:pt-[75vh] md:pt-[65vh] z-10"
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
@@ -80,20 +80,11 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20 ">
+        <motion.div className="flex flex-row space-x-20">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
               translate={translateXReverse}
-              key={product.title}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <ProductCard
-              product={product}
-              translate={translateX}
               key={product.title}
             />
           ))}
@@ -133,14 +124,10 @@ export const ProductCard = ({
           src={product.thumbnail}
           height="600"
           width="600"
-          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-[20px] shadow-lg border border-white/10"
+          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-[20px] shadow-lg border border-white/10 opacity-[0.85] group-hover/product:opacity-100 transition-opacity duration-300"
           alt={product.title}
         />
       </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-100 bg-black/50 rounded-[20px] pointer-events-none transition-opacity duration-300"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white font-neue-montreal-medium transition-opacity duration-300">
-        {product.title}
-      </h2>
     </motion.div>
   );
 };

@@ -149,6 +149,39 @@ body {
   animation: gradient-shift 8s ease infinite;
 }
 
+@keyframes wave-emerge {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.18;
+  }
+  80% {
+    opacity: 0.06;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.animate-wave-1 {
+  animation: wave-emerge 8s infinite linear;
+  will-change: transform, opacity;
+}
+
+.animate-wave-2 {
+  animation: wave-emerge 8s infinite linear 2.6s;
+  will-change: transform, opacity;
+}
+
+.animate-wave-3 {
+  animation: wave-emerge 8s infinite linear 5.3s;
+  will-change: transform, opacity;
+}
+
+
 .glass-card {
   background: var(--card-bg);
   backdrop-filter: blur(12px);

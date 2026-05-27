@@ -2,13 +2,10 @@
 import { useState } from 'react';
 import { motion, Variants } from 'motion/react';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
 
 interface ExpandableCard {
   id: number;
-  image: string;
-  title: string;
-  description: string;
+  content: React.ReactNode | ((isExpanded: boolean) => React.ReactNode);
 }
 
 interface ExpandableCardsProps {
@@ -23,15 +20,16 @@ export default function ExpandableCards({
   className,
 }: ExpandableCardsProps) {
   const [expandedId, setExpandedId] = useState<number>(defaultExpanded);
+  const elegantEase: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
   const cardVariants: Variants = {
     expanded: {
       flex: 3,
-      transition: { duration: 0.5, ease: [0.4, 0.0, 0.2, 1] },
+      transition: { duration: 0.45, ease: elegantEase },
     },
     collapsed: {
       flex: 1,
-      transition: { duration: 0.5, ease: [0.4, 0.0, 0.2, 1] },
+      transition: { duration: 0.45, ease: elegantEase },
     },
   };
 
@@ -39,49 +37,45 @@ export default function ExpandableCards({
     <div className={cn('flex gap-3 sm:gap-4 w-full h-full', className)}>
       {cards.map((card) => {
         const isExpanded = expandedId === card.id;
+        const cardContent =
+          typeof card.content === 'function' ? card.content(isExpanded) : card.content;
 
         return (
           <motion.div
             key={card.id}
-            className='relative h-full overflow-hidden rounded-2xl sm:rounded-3xl cursor-pointer group border border-white/5 shadow-2xl shadow-black/50'
+            layout
+            className='relative h-full overflow-hidden rounded-3xl cursor-pointer group border border-white/[0.05] hover:border-blue-300/35 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl shadow-black/40'
             variants={cardVariants}
             initial={isExpanded ? 'expanded' : 'collapsed'}
             animate={isExpanded ? 'expanded' : 'collapsed'}
             onMouseEnter={() => setExpandedId(card.id)}
+            whileHover={{ y: -8 }}
           >
-            <div className='absolute inset-0'>
-              <img 
-                src={card.image} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                alt={card.title} 
+            {isExpanded && (
+              <motion.div
+                layoutId='services-active-glow'
+                className='pointer-events-none absolute inset-0 rounded-3xl border border-blue-200/25 bg-[radial-gradient(120%_90%_at_70%_80%,rgba(191,219,254,0.18)_0%,rgba(59,130,246,0.08)_38%,transparent_72%)]'
+                transition={{ duration: 0.5, ease: elegantEase }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#060a16] via-[#060a16]/60 to-transparent" />
-            </div>
+            )}
 
-            <div className="absolute bottom-0 left-0 w-full p-6 sm:p-8 flex flex-col justify-end h-full z-10">
-              <h3 className="text-xl sm:text-2xl font-neue-montreal-medium text-white mb-2 min-w-[200px] leading-tight">
-                {card.title}
-              </h3>
-              
-              <motion.div 
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: isExpanded ? 1 : 0, height: isExpanded ? 'auto' : 0 }}
-                transition={{ duration: 0.3, delay: isExpanded ? 0.2 : 0 }}
-                className="overflow-hidden"
+            {isExpanded && (
+              <motion.div
+                layoutId='services-travel-orb'
+                className='pointer-events-none absolute right-4 top-4 h-20 w-20'
+                transition={{ type: 'spring', stiffness: 190, damping: 24, mass: 0.8 }}
               >
-                <div className="h-px w-12 bg-blue-500/50 mb-4 mt-2"></div>
-                <p className="text-sm sm:text-base font-neue-montreal-light text-white/80 leading-relaxed mb-6 max-w-xl">
-                  {card.description}
-                </p>
-                <button className="text-blue-400 font-neue-montreal-medium text-sm flex items-center gap-2 hover:text-blue-300 transition-colors uppercase tracking-wider">
-                  Learn More <span>↗</span>
-                </button>
+                <div className='absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(219,234,254,0.32)_0%,rgba(147,197,253,0.16)_42%,transparent_72%)] blur-sm' />
+                <div className='absolute right-4 top-4 h-7 w-7 rounded-full border border-blue-100/45 bg-white/20 shadow-[0_0_20px_rgba(191,219,254,0.42)]' />
+                <div className='absolute right-9 top-8 h-[2px] w-12 -rotate-[16deg] bg-gradient-to-r from-transparent via-blue-100/45 to-transparent' />
               </motion.div>
-            </div>
+            )}
+
+            <div className='absolute inset-0'>{cardContent}</div>
 
             {!isExpanded && (
               <motion.div
-                className='absolute inset-0 bg-black/40 hover:bg-black/20 transition-colors duration-300 z-0'
+                className='absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300'
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
               />

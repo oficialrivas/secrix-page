@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "motion/react";
 import { useRef, useState } from "react";
+import Link from "next/link";
 import { MotionGrid } from "@/components/ui/motion-grid";
 import GlobeWireframe from "@/components/ui/globe-wireframe";
 import NavbarFlow from "@/components/ui/navbar-flow";
@@ -49,13 +50,15 @@ export function HeroSection() {
       <div className="fixed top-[3%] left-0 right-0 z-50">
         <NavbarFlow
           emblem={
-            <ScrollXHeading className="w-auto! h-4! sm:h-5! whitespace-nowrap" />
+            <Link href="/" aria-label="Ir a inicio" className="cursor-pointer">
+              <ScrollXHeading className="w-auto! h-4! sm:h-5! whitespace-nowrap" />
+            </Link>
           }
           links={[
-            { text: "Servicios" },
-            { text: "Proceso" },
-            { text: "Tecnología" },
-            { text: "Contacto" },
+            { text: "Servicios", url: "/servicios" },
+            { text: "Proceso", url: "#proceso" },
+            { text: "Tecnología", url: "#tecnologia" },
+            { text: "Contacto", url: "#contacto" },
           ]}
           rightComponent={<ThemeSwitchIcon />}
           showConnections={false}

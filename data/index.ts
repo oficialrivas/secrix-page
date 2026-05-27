@@ -131,7 +131,7 @@ export const techStack: TechItem[] = [
 
 export const navigationLinks: NavLink[] = [
   { label: "Inicio", href: "/" },
-  { label: "Servicios", href: "#servicios" },
+  { label: "Servicios", href: "/servicios" },
   { label: "Proceso", href: "#proceso" },
   { label: "Tecnología", href: "#tecnologia" },
   { label: "Contacto", href: "#contacto" },
