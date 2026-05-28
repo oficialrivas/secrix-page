@@ -16,8 +16,7 @@ const cardData: {
   title: string;
   description: string;
   icon: React.ReactNode;
-  lightBg: string;
-  darkBg: string;
+  variant: "glass" | "light";
   iconBorder: string;
   iconColor: string;
   titleColor: string;
@@ -28,8 +27,7 @@ const cardData: {
     description:
       "Real-time threat monitoring and strategic intelligence across complex environments in the Americas and beyond.",
     icon: <Radar />,
-    lightBg: "bg-black text-white",
-    darkBg: "bg-[#060a16] text-white",
+    variant: "glass",
     iconBorder: "border-blue-400/20 bg-blue-400/5",
     iconColor: "text-blue-400",
     titleColor: "text-white",
@@ -40,8 +38,7 @@ const cardData: {
     description:
       "Comprehensive protective services for corporations, institutions, and high-profile individuals operating in high-risk environments.",
     icon: <Shield />,
-    lightBg: "bg-white text-black",
-    darkBg: "bg-[#f8fafc] text-black",
+    variant: "light",
     iconBorder: "border-blue-600/20 bg-blue-600/5",
     iconColor: "text-blue-600",
     titleColor: "text-black",
@@ -52,8 +49,7 @@ const cardData: {
     description:
       "Systematic evaluation of threats and vulnerabilities to strengthen organizational resilience and decision-making.",
     icon: <Search />,
-    lightBg: "bg-black text-white",
-    darkBg: "bg-[#060a16] text-white",
+    variant: "glass",
     iconBorder: "border-blue-400/20 bg-blue-400/5",
     iconColor: "text-blue-400",
     titleColor: "text-white",
@@ -64,8 +60,7 @@ const cardData: {
     description:
       "Rapid response protocols and strategic guidance when critical incidents threaten operations or reputation.",
     icon: <AlertTriangle />,
-    lightBg: "bg-white text-black",
-    darkBg: "bg-[#f8fafc] text-black",
+    variant: "light",
     iconBorder: "border-blue-600/20 bg-blue-600/5",
     iconColor: "text-blue-600",
     titleColor: "text-black",
@@ -76,8 +71,7 @@ const cardData: {
     description:
       "Specialized security detail and travel risk management for high-profile principals and their families.",
     icon: <UserCheck />,
-    lightBg: "bg-black text-white",
-    darkBg: "bg-[#060a16] text-white",
+    variant: "glass",
     iconBorder: "border-blue-400/20 bg-blue-400/5",
     iconColor: "text-blue-400",
     titleColor: "text-white",
@@ -88,8 +82,7 @@ const cardData: {
     description:
       "Advanced security technology advisory, systems integration, and surveillance solutions for modern enterprises.",
     icon: <Camera />,
-    lightBg: "bg-white text-black",
-    darkBg: "bg-[#f8fafc] text-black",
+    variant: "light",
     iconBorder: "border-blue-600/20 bg-blue-600/5",
     iconColor: "text-blue-600",
     titleColor: "text-black",
@@ -99,8 +92,7 @@ const cardData: {
 
 export function AboutCards() {
   const cards = cardData.map((card) => ({
-    lightBg: card.lightBg,
-    darkBg: card.darkBg,
+    variant: card.variant,
     content: (
       <CardContent className="flex flex-col items-center justify-center h-full not-prose text-inherit px-8 md:px-16">
         <div className={`mb-6 p-4 rounded-2xl border ${card.iconBorder} backdrop-blur-sm`}>

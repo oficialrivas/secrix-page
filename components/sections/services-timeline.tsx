@@ -181,11 +181,30 @@ export function ServicesTimeline() {
   });
   const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
+  const { scrollYProgress: bgScrollProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const bgOpacity = useTransform(bgScrollProgress, [0, 0.4], [1, 0]);
+
   return (
     <section
       ref={sectionRef}
       className="relative overflow-hidden bg-transparent px-6 pb-24 pt-8 md:pb-32"
     >
+      <motion.div
+        style={{ opacity: bgOpacity }}
+        className="absolute inset-0 pointer-events-none z-0"
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(135deg, rgba(8,12,24,0.15), rgba(0,16,40,0.06))",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent" />
+      </motion.div>
+
       <div className="mx-auto mb-14 max-w-6xl text-center">
         <h1 className="mt-12 bg-gradient-to-b from-white via-blue-100/90 to-blue-200/60 bg-clip-text text-4xl font-neue-montreal-medium uppercase tracking-[0.08em] text-transparent md:text-6xl">
           Servicios

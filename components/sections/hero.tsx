@@ -57,7 +57,7 @@ export function HeroSection() {
           links={[
             { text: "Services", url: "/servicios" },
             { text: "About", url: "/about" },
-            { text: "Contact", url: "#contacto" },
+            { text: "Contact", url: "/contacto" },
           ]}
           rightComponent={<ThemeSwitchIcon />}
           showConnections={false}
