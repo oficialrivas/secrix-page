@@ -28,8 +28,8 @@ const cardData: {
       "Real-time threat monitoring and strategic intelligence across complex environments in the Americas and beyond.",
     icon: <Radar />,
     variant: "glass",
-    iconBorder: "border-blue-400/20 bg-blue-400/5",
-    iconColor: "text-blue-400",
+    iconBorder: "border-[#d5b439]/30 bg-[#d5b439]/10",
+    iconColor: "text-[#d5b439]",
     titleColor: "text-white",
     descColor: "text-white/70",
   },
@@ -39,8 +39,8 @@ const cardData: {
       "Comprehensive protective services for corporations, institutions, and high-profile individuals operating in high-risk environments.",
     icon: <Shield />,
     variant: "light",
-    iconBorder: "border-blue-600/20 bg-blue-600/5",
-    iconColor: "text-blue-600",
+    iconBorder: "border-[#70663c]/35 bg-[#d5b439]/12",
+    iconColor: "text-[#70663c]",
     titleColor: "text-black",
     descColor: "text-black/70",
   },
@@ -50,8 +50,8 @@ const cardData: {
       "Systematic evaluation of threats and vulnerabilities to strengthen organizational resilience and decision-making.",
     icon: <Search />,
     variant: "glass",
-    iconBorder: "border-blue-400/20 bg-blue-400/5",
-    iconColor: "text-blue-400",
+    iconBorder: "border-[#d5b439]/30 bg-[#d5b439]/10",
+    iconColor: "text-[#d5b439]",
     titleColor: "text-white",
     descColor: "text-white/70",
   },
@@ -61,8 +61,8 @@ const cardData: {
       "Rapid response protocols and strategic guidance when critical incidents threaten operations or reputation.",
     icon: <AlertTriangle />,
     variant: "light",
-    iconBorder: "border-blue-600/20 bg-blue-600/5",
-    iconColor: "text-blue-600",
+    iconBorder: "border-[#70663c]/35 bg-[#d5b439]/12",
+    iconColor: "text-[#70663c]",
     titleColor: "text-black",
     descColor: "text-black/70",
   },
@@ -72,8 +72,8 @@ const cardData: {
       "Specialized security detail and travel risk management for high-profile principals and their families.",
     icon: <UserCheck />,
     variant: "glass",
-    iconBorder: "border-blue-400/20 bg-blue-400/5",
-    iconColor: "text-blue-400",
+    iconBorder: "border-[#d5b439]/30 bg-[#d5b439]/10",
+    iconColor: "text-[#d5b439]",
     titleColor: "text-white",
     descColor: "text-white/70",
   },
@@ -83,8 +83,8 @@ const cardData: {
       "Advanced security technology advisory, systems integration, and surveillance solutions for modern enterprises.",
     icon: <Camera />,
     variant: "light",
-    iconBorder: "border-blue-600/20 bg-blue-600/5",
-    iconColor: "text-blue-600",
+    iconBorder: "border-[#70663c]/35 bg-[#d5b439]/12",
+    iconColor: "text-[#70663c]",
     titleColor: "text-black",
     descColor: "text-black/70",
   },
@@ -100,10 +100,10 @@ export function AboutCards() {
             {card.icon}
           </span>
         </div>
-        <h2 className={`text-3xl sm:text-4xl md:text-5xl font-black font-helvetica mb-4 uppercase tracking-wide ${card.titleColor}`}>
+        <h2 className={`text-4xl sm:text-5xl md:text-6xl font-black font-helvetica mb-4 uppercase tracking-wide ${card.titleColor}`}>
           {card.title}
         </h2>
-        <p className={`text-lg md:text-xl font-neue-montreal-light max-w-2xl leading-relaxed ${card.descColor}`}>
+        <p className={`text-xl md:text-2xl font-neue-montreal-light max-w-2xl leading-relaxed ${card.descColor}`}>
           {card.description}
         </p>
       </CardContent>

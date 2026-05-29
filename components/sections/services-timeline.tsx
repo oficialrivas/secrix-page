@@ -19,86 +19,115 @@ type ServiceItem = {
   badge: string;
   title: string;
   subtitle: string;
-  priceLabel: string;
   summary: string;
   highlights: string[];
-  deliverables: string[];
+  deliverables: { label: string; text: string }[];
 };
 
 const services: ServiceItem[] = [
   {
     id: "01",
-    badge: "Core",
-    title: "Security Consulting",
-    subtitle: "Strategic security planning for executive teams",
-    priceLabel: "Phase 01",
-    summary: "Define a practical security roadmap aligned to operations and growth.",
-    highlights: ["Scope", "Risk", "Impact", "Timeline"],
+    badge: "Global",
+    title: "Global Security & Risk Solutions",
+    subtitle: "Integrated security and risk management for complex environments",
+    summary:
+      "We combine strategic advisory, intelligence, protective services, and technology to safeguard people, assets, and operations.",
+    highlights: ["Strategy", "Intelligence", "Protection", "Resilience"],
     deliverables: [
-      "Executive risk briefing",
-      "Control gap analysis",
-      "Priority action matrix",
-      "Implementation milestones",
+      { label: "Framework", text: "Integrated security and risk framework design" },
+      { label: "Alignment", text: "Regional threat and exposure alignment" },
+      { label: "Continuity", text: "Business continuity and resilience guidance" },
+      { label: "Governance", text: "Leadership-level governance recommendations" },
     ],
   },
   {
     id: "02",
-    badge: "Field",
-    title: "Risk Surveys & Audits",
-    subtitle: "On-site and remote vulnerability review",
-    priceLabel: "Phase 02",
-    summary: "Audit your physical and digital posture with measurable findings.",
-    highlights: ["Sites", "Systems", "People", "Evidence"],
+    badge: "Audit",
+    title: "Risk Surveys & Security Audits",
+    subtitle: "Comprehensive vulnerability reviews across sites and operations",
+    summary:
+      "We identify vulnerabilities in facilities, processes, and supply chains through objective and structured assessments.",
+    highlights: ["Facilities", "Operations", "Supply Chain", "Compliance"],
     deliverables: [
-      "Facility risk survey",
-      "Security controls benchmark",
-      "Compliance deviations",
-      "Corrective action plan",
+      { label: "Inspection", text: "Site inspections and operational security review" },
+      { label: "Analysis", text: "Threat analysis and control effectiveness evaluation" },
+      { label: "Reporting", text: "Structured vulnerability and gap reporting" },
+      { label: "Roadmap", text: "Prioritized mitigation and improvement roadmap" },
     ],
   },
   {
     id: "03",
-    badge: "Training",
-    title: "Corporate & Law Enforcement Training",
-    subtitle: "Operational readiness for high-pressure scenarios",
-    priceLabel: "Phase 03",
-    summary: "Train teams to respond quickly, consistently, and safely.",
-    highlights: ["Drills", "Playbooks", "Leaders", "Response"],
+    badge: "Advisory",
+    title: "Security Consulting",
+    subtitle: "Strategic advisory aligned with governance and business goals",
+    summary:
+      "Our consulting services strengthen enterprise security programs while supporting sustainable growth and operational stability.",
+    highlights: ["Governance", "Planning", "Risk", "Leadership"],
     deliverables: [
-      "Incident response simulation",
-      "Threat escalation protocols",
-      "Role-based workshops",
-      "After-action recommendations",
+      { label: "Strategy", text: "Security strategy and program development" },
+      { label: "Crisis", text: "Crisis management and contingency planning" },
+      { label: "Assessment", text: "Operational risk and security posture assessments" },
+      { label: "Advisory", text: "Executive advisory for strategic decisions" },
     ],
   },
   {
     id: "04",
     badge: "Intel",
     title: "Threat & Vulnerability Assessments",
-    subtitle: "Continuous threat mapping for critical assets",
-    priceLabel: "Phase 04",
-    summary: "Identify adversary paths before they become incidents.",
-    highlights: ["OSINT", "Exposure", "Criticality", "Monitoring"],
+    subtitle: "Intelligence-led assessments across physical and geopolitical risks",
+    summary:
+      "We evaluate exposure affecting personnel, infrastructure, operations, and reputation to guide targeted mitigation.",
+    highlights: ["Threats", "Exposure", "Infrastructure", "Reputation"],
     deliverables: [
-      "Threat landscape report",
-      "Attack surface priorities",
-      "High-risk scenario mapping",
-      "Mitigation sequence",
+      { label: "Threats", text: "Regional condition and adversarial threat analysis" },
+      { label: "Mapping", text: "Facility and operational vulnerability mapping" },
+      { label: "Priorities", text: "Risk prioritization for critical assets" },
+      { label: "Mitigation", text: "Actionable mitigation strategy guidance" },
     ],
   },
   {
     id: "05",
-    badge: "Tech",
-    title: "Systems Integration Advisory",
-    subtitle: "Security technology architecture and deployment",
-    priceLabel: "Phase 05",
-    summary: "Integrate tools, workflows, and teams into one operational system.",
-    highlights: ["Design", "Integration", "Testing", "Handover"],
+    badge: "Investigations",
+    title: "Intelligence & Investigations",
+    subtitle: "Evidence-based investigations and intelligence support",
+    summary:
+      "We provide investigative and intelligence services that help organizations manage operational, financial, and reputational risk.",
+    highlights: ["Due Diligence", "Fraud", "Loss", "Recovery"],
     deliverables: [
-      "Technology stack blueprint",
-      "Integration workflow map",
-      "Performance validation",
-      "Operational handover kit",
+      { label: "Diligence", text: "Enhanced due diligence and investigative research" },
+      { label: "Fraud", text: "Fraud and loss investigations with clear reporting" },
+      { label: "Claims", text: "Insurance and reinsurance claims support" },
+      { label: "Recovery", text: "Asset tracing and recovery coordination" },
+    ],
+  },
+  {
+    id: "06",
+    badge: "Tech",
+    title: "Security Technology Advisory & Systems Integration",
+    subtitle: "Independent advisory and project management for security infrastructure",
+    summary:
+      "We oversee end-to-end technology deployments to ensure systems are integrated, reliable, and aligned with operations.",
+    highlights: ["Design", "Vendors", "Integration", "Commissioning"],
+    deliverables: [
+      { label: "Architecture", text: "Security technology architecture and system design" },
+      { label: "Vendors", text: "Vendor selection and procurement support" },
+      { label: "Integration", text: "Installation oversight and integration validation" },
+      { label: "Commissioning", text: "Testing, commissioning, and quality assurance" },
+    ],
+  },
+  {
+    id: "07",
+    badge: "Training",
+    title: "Corporate & Law Enforcement Training",
+    subtitle: "Specialized programs for readiness in complex environments",
+    summary:
+      "Our structured, scenario-based programs build operational capability for security professionals and law enforcement teams.",
+    highlights: ["Protection", "Investigations", "Intelligence", "Response"],
+    deliverables: [
+      { label: "Protection", text: "Executive protection and high-liability operations training" },
+      { label: "Instruction", text: "Investigative techniques and intelligence analysis instruction" },
+      { label: "Prevention", text: "Kidnap and ransom prevention programs" },
+      { label: "Simulation", text: "Scenario-based simulations and operational seminars" },
     ],
   },
 ];
@@ -122,10 +151,7 @@ function TimelineCard({ item }: { item: ServiceItem }) {
 
         <CardFlipContent className="flex min-h-[190px] flex-1 items-center justify-center overflow-auto px-8 text-center">
           <div className="w-full">
-            <p className="text-3xl font-neue-montreal-medium text-white/90 leading-none md:text-4xl">
-              {item.priceLabel}
-            </p>
-            <CardFlipTitle className="mt-2 text-base font-neue-montreal text-white/80 md:text-lg">
+            <CardFlipTitle className="text-2xl font-neue-montreal-medium text-white/90 leading-tight md:text-3xl">
               {item.title}
             </CardFlipTitle>
             <p className="mt-2 text-xs font-neue-montreal-light text-white/50 leading-tight md:text-sm">
@@ -155,11 +181,11 @@ function TimelineCard({ item }: { item: ServiceItem }) {
 
         <CardFlipContent className="flex-1 space-y-4 overflow-auto">
           {item.deliverables.map((deliverable) => (
-            <div key={deliverable} className="flex items-start gap-3">
-              <Box className="mt-1 h-5 w-5 text-cyan-300" />
+            <div key={`${item.id}-${deliverable.label}`} className="flex items-start gap-3">
+              <Box className="mt-1 h-5 w-5 text-[#d5b439]/90" />
               <div>
-                <h4 className="font-semibold text-white/85">Deliverable</h4>
-                <p className="text-sm text-white/60">{deliverable}</p>
+                <h4 className="font-semibold text-white/85">{deliverable.label}</h4>
+                <p className="text-sm text-white/60">{deliverable.text}</p>
               </div>
             </div>
           ))}
@@ -206,16 +232,16 @@ export function ServicesTimeline() {
       </motion.div>
 
       <div className="mx-auto mb-14 max-w-6xl text-center">
-        <h1 className="mt-12 bg-gradient-to-b from-white via-blue-100/90 to-blue-200/60 bg-clip-text text-4xl font-neue-montreal-medium uppercase tracking-[0.08em] text-transparent md:text-6xl">
-          Servicios
+        <h1 className="mt-12 text-4xl font-neue-montreal-medium uppercase tracking-[0.08em] text-white md:text-6xl">
+          Services
         </h1>
       </div>
 
       <div className="relative mx-auto max-w-6xl">
-        <div className="absolute bottom-0 left-[22px] top-0 w-px bg-blue-200/20 md:left-1/2 md:-translate-x-1/2" />
+        <div className="absolute bottom-0 left-[22px] top-0 w-px bg-[#d5b439]/20 md:left-1/2 md:-translate-x-1/2" />
         <motion.div
           style={{ scaleY: lineScale, transformOrigin: "top" }}
-          className="absolute left-[22px] top-0 w-px bg-gradient-to-b from-cyan-300 via-blue-400 to-blue-600 shadow-[0_0_18px_rgba(56,189,248,0.7)] md:left-1/2 md:-translate-x-1/2"
+          className="absolute left-[22px] top-0 w-px bg-gradient-to-b from-[#f3de6c]/80 via-[#d5b439]/70 to-[#70663c]/70 shadow-[0_0_16px_rgba(213,180,57,0.45)] md:left-1/2 md:-translate-x-1/2"
         />
 
         <div className="space-y-12 md:space-y-16">
@@ -231,14 +257,14 @@ export function ServicesTimeline() {
                 transition={{ duration: 0.55, ease: "easeOut" }}
                 className="relative grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-12"
               >
-                <div className="absolute left-[22px] top-6 z-20 h-3 w-3 -translate-x-1/2 rounded-full border border-cyan-200/80 bg-cyan-300 shadow-[0_0_16px_rgba(56,189,248,0.9)] md:left-1/2" />
+                <div className="absolute left-[22px] top-6 z-20 h-3 w-3 -translate-x-1/2 rounded-full border border-[#f3de6c]/70 bg-[#d5b439] shadow-[0_0_12px_rgba(213,180,57,0.55)] md:left-1/2" />
 
                 <div className={isRight ? "md:col-start-2" : "md:col-start-1"}>
                   <div className="mb-3 ml-10 flex items-center gap-3 md:ml-0">
-                    <span className="rounded-full border border-blue-200/30 bg-blue-900/40 px-2 py-1 text-xs font-semibold text-blue-100/80">
+                    <span className="rounded-full border border-[#f3de6c]/35 bg-[#70663c]/28 px-2 py-1 text-xs font-semibold text-[#f3de6c]/90">
                       {item.id}
                     </span>
-                    <p className="text-sm uppercase tracking-[0.14em] text-blue-100/65">
+                    <p className="text-sm uppercase tracking-[0.14em] text-[#f3de6c]/65">
                       {item.subtitle}
                     </p>
                   </div>

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { ServicesPageNavbar } from "@/components/sections/services-page-navbar";
-import { ServicesTimeline } from "@/components/sections/services-timeline";
+import { ServicesScrollingShowcase } from "@/components/sections/services-scrolling-showcase";
 
 export const metadata: Metadata = {
-  title: "Servicios",
+  title: "Services",
   description:
-    "Servicios de consultoria en seguridad, evaluacion de riesgos e inteligencia operacional de Secrix.",
+    "Secrix security consulting, risk assessments, intelligence, investigations, and training services.",
 };
 
 export default function ServiciosPage() {
@@ -14,7 +14,7 @@ export default function ServiciosPage() {
       <ServicesPageNavbar />
 
       <div className="pt-20 md:pt-24">
-        <ServicesTimeline />
+        <ServicesScrollingShowcase />
       </div>
     </>
   );

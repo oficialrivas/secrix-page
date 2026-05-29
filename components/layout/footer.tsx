@@ -5,7 +5,6 @@ import { motion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import { navigationLinks, socialLinks } from "@/data";
-import { MotionGrid } from "@/components/ui/motion-grid";
 
 const socialIcons: Record<"twitter" | "github" | "linkedin", React.ReactNode> = {
   linkedin: (
@@ -122,38 +121,29 @@ function FooterWithFadedBrand({
   return (
     <footer
       className={cn(
-        "w-full relative overflow-hidden select-none bg-gradient-to-b from-[#06122f] via-[#071838] to-[#050f29] border-t border-blue-200/10",
+        "w-full relative overflow-hidden select-none bg-transparent border-t border-white/[0.08]",
         className,
       )}
     >
-      <div className="pointer-events-none absolute inset-0 opacity-45">
-        <MotionGrid
-          direction="left"
-          speed="4.2s"
-          opacity={0.12}
-          enableGlow={true}
-          lineColor="96, 165, 250"
-          className="w-full h-full"
-        />
-      </div>
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_16%,rgba(147,197,253,0.22),transparent_38%),radial-gradient(circle_at_84%_78%,rgba(191,219,254,0.14),transparent_45%)]" />
-      <motion.div
-        aria-hidden
-        animate={{ x: ["-20%", "120%"] }}
-        transition={{ repeat: Infinity, duration: 9, ease: "linear" }}
-        className="pointer-events-none absolute -top-20 h-52 w-1/2 bg-gradient-to-r from-transparent via-blue-100/10 to-transparent blur-2xl"
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(135deg, rgba(8,12,24,0.72), rgba(0,16,40,0.56))",
+        }}
       />
-
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_14%_16%,rgba(255,255,255,0.09),transparent_36%),radial-gradient(circle_at_84%_78%,rgba(255,255,255,0.05),transparent_44%)]" />
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="relative z-10 px-8 pt-16 pb-10 md:px-16 md:pt-20"
+        className="relative z-10 mx-4 my-6 rounded-[32px] border border-white/[0.08] bg-white/[0.02] px-8 pt-16 pb-10 shadow-2xl shadow-black/35 backdrop-blur-xl md:mx-8 md:px-16 md:pt-20"
       >
         <motion.p
           variants={itemVariants}
-          className="text-xs font-semibold tracking-[0.24em] uppercase mb-10 text-blue-100/60"
+          className="text-xs font-neue-montreal-medium tracking-[0.24em] uppercase mb-10 text-[#f3de6c]/68"
         >
           {tagline}
         </motion.p>
@@ -162,7 +152,7 @@ function FooterWithFadedBrand({
           <div className="grid grid-cols-2 gap-x-12 gap-y-8 md:grid-cols-3 md:gap-x-20">
             {resolvedColumns.map((col, ci) => (
               <motion.div key={ci} variants={itemVariants}>
-                <p className="text-[11px] font-semibold tracking-widest uppercase mb-4 text-blue-100/60">
+                <p className="text-[11px] font-neue-montreal-medium tracking-widest uppercase mb-4 text-[#f3de6c]/65">
                   {col.heading}
                 </p>
                 <ul className="flex flex-col gap-3">
@@ -171,14 +161,14 @@ function FooterWithFadedBrand({
                       {isInternalLink(link.url) ? (
                         <Link
                           href={link.url}
-                          className="text-sm font-medium text-blue-50/80 hover:text-white transition-colors duration-200"
+                           className="text-sm font-medium text-[#f9f1c9]/78 hover:text-white transition-colors duration-200"
                         >
                           {link.text}
                         </Link>
                       ) : (
                         <a
                           href={link.url}
-                          className="text-sm font-medium text-blue-50/80 hover:text-white transition-colors duration-200"
+                           className="text-sm font-medium text-[#f9f1c9]/78 hover:text-white transition-colors duration-200"
                         >
                           {link.text}
                         </a>
@@ -191,7 +181,7 @@ function FooterWithFadedBrand({
           </div>
 
           <motion.div variants={itemVariants} className="md:text-right">
-            <p className="text-[11px] font-semibold tracking-widest uppercase mb-4 text-blue-100/60">
+            <p className="text-[11px] font-neue-montreal-medium tracking-widest uppercase mb-4 text-[#f3de6c]/65">
               Social
             </p>
             <div className="flex items-center gap-3 md:justify-end">
@@ -201,7 +191,7 @@ function FooterWithFadedBrand({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter / X"
-                  className="flex items-center justify-center w-9 h-9 rounded-full bg-blue-100/12 border border-blue-100/25 text-blue-50/75 hover:bg-blue-100/25 hover:text-white transition-all duration-200 shadow-[0_0_24px_rgba(147,197,253,0.25)]"
+                  className="flex items-center justify-center w-9 h-9 rounded-full bg-[#d5b439]/12 border border-[#f3de6c]/28 text-[#f9f1c9]/80 hover:bg-[#d5b439]/26 hover:text-white transition-all duration-200 shadow-[0_0_18px_rgba(213,180,57,0.26)]"
                 >
                   {socialIcons.twitter}
                 </a>
@@ -212,7 +202,7 @@ function FooterWithFadedBrand({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="flex items-center justify-center w-9 h-9 rounded-full bg-blue-100/12 border border-blue-100/25 text-blue-50/75 hover:bg-blue-100/25 hover:text-white transition-all duration-200 shadow-[0_0_24px_rgba(147,197,253,0.25)]"
+                  className="flex items-center justify-center w-9 h-9 rounded-full bg-[#d5b439]/12 border border-[#f3de6c]/28 text-[#f9f1c9]/80 hover:bg-[#d5b439]/26 hover:text-white transition-all duration-200 shadow-[0_0_18px_rgba(213,180,57,0.26)]"
                 >
                   {socialIcons.github}
                 </a>
@@ -223,7 +213,7 @@ function FooterWithFadedBrand({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="flex items-center justify-center w-9 h-9 rounded-full bg-blue-100/12 border border-blue-100/25 text-blue-50/75 hover:bg-blue-100/25 hover:text-white transition-all duration-200 shadow-[0_0_24px_rgba(147,197,253,0.25)]"
+                  className="flex items-center justify-center w-9 h-9 rounded-full bg-[#d5b439]/12 border border-[#f3de6c]/28 text-[#f9f1c9]/80 hover:bg-[#d5b439]/26 hover:text-white transition-all duration-200 shadow-[0_0_18px_rgba(213,180,57,0.26)]"
                 >
                   {socialIcons.linkedin}
                 </a>
@@ -234,20 +224,20 @@ function FooterWithFadedBrand({
 
         <motion.div
           variants={itemVariants}
-          className="mt-12 border-t border-blue-100/15"
+          className="mt-12 border-t border-[#f3de6c]/20"
         />
 
         <motion.div
           variants={itemVariants}
           className="mt-5 flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
         >
-          <p className="text-xs text-blue-100/55">{resolvedCopyright}</p>
+          <p className="text-xs text-[#f3de6c]/58">{resolvedCopyright}</p>
           <div className="flex items-center gap-5">
             {resolvedLegalLinks.map((l, i) => (
               <Link
                 key={i}
                 href={l.url}
-                className="text-xs text-blue-100/55 hover:text-white transition-colors"
+                className="text-xs text-[#f3de6c]/58 hover:text-white transition-colors"
               >
                 {l.text}
               </Link>
@@ -261,7 +251,7 @@ function FooterWithFadedBrand({
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="inset-x-0 mt-20 bg-linear-to-b from-blue-50 via-blue-100/60 to-blue-200/25 bg-clip-text text-center font-bold text-transparent drop-shadow-[0_0_28px_rgba(191,219,254,0.28)]"
+        className="inset-x-0 mt-20 bg-linear-to-b from-blue-100/85 via-blue-100/52 to-blue-100/25 bg-clip-text text-center font-neue-montreal-medium tracking-[0.1em] text-transparent opacity-65 drop-shadow-[0_0_18px_rgba(148,163,184,0.2)]"
         style={{
           fontSize: "clamp(3rem, 15vw, 13rem)",
         }}

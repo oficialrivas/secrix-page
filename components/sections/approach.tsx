@@ -10,7 +10,7 @@ const stats = [
 
 export function ApproachSection() {
   return (
-    <section className="relative w-full -mt-[30vh] pt-32 mb-48 md:mb-64 bg-transparent z-10">
+    <section className="relative w-full mt-12 md:mt-20 pt-20 md:pt-24 mb-48 md:mb-64 bg-transparent z-10">
       <div className="container mx-auto px-6 relative z-10">
         <StatsCount
           stats={stats}

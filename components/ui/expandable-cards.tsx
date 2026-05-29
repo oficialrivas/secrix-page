@@ -44,7 +44,7 @@ export default function ExpandableCards({
           <motion.div
             key={card.id}
             layout
-            className='relative h-full overflow-hidden rounded-[40px] cursor-pointer group hover:border-blue-300/35 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl shadow-black/40'
+            className='relative h-full overflow-hidden rounded-[40px] cursor-pointer group hover:border-[#d5b439]/40 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl shadow-black/40'
             variants={cardVariants}
             initial={isExpanded ? 'expanded' : 'collapsed'}
             animate={isExpanded ? 'expanded' : 'collapsed'}
@@ -54,7 +54,7 @@ export default function ExpandableCards({
             {isExpanded && (
               <motion.div
                 layoutId='services-active-glow'
-                className='pointer-events-none absolute inset-0 rounded-[40px] border border-blue-200/25 bg-[radial-gradient(120%_90%_at_70%_80%,rgba(191,219,254,0.18)_0%,rgba(59,130,246,0.08)_38%,transparent_72%)]'
+                className='pointer-events-none absolute inset-0 rounded-[40px] border border-[#f3de6c]/24 bg-[radial-gradient(120%_90%_at_70%_80%,rgba(243,222,108,0.14)_0%,rgba(213,180,57,0.08)_38%,transparent_72%)]'
                 transition={{ duration: 0.5, ease: elegantEase }}
               />
             )}
@@ -65,9 +65,9 @@ export default function ExpandableCards({
                 className='pointer-events-none absolute right-4 top-4 h-20 w-20'
                 transition={{ type: 'spring', stiffness: 190, damping: 24, mass: 0.8 }}
               >
-                <div className='absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(219,234,254,0.32)_0%,rgba(147,197,253,0.16)_42%,transparent_72%)] blur-sm' />
-                <div className='absolute right-4 top-4 h-7 w-7 rounded-full border border-blue-100/45 bg-white/20 shadow-[0_0_20px_rgba(191,219,254,0.42)]' />
-                <div className='absolute right-9 top-8 h-[2px] w-12 -rotate-[16deg] bg-gradient-to-r from-transparent via-blue-100/45 to-transparent' />
+                <div className='absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(243,222,108,0.26)_0%,rgba(213,180,57,0.14)_42%,transparent_72%)] blur-sm' />
+                <div className='absolute right-4 top-4 h-7 w-7 rounded-full border border-[#f3de6c]/45 bg-white/15 shadow-[0_0_18px_rgba(213,180,57,0.35)]' />
+                <div className='absolute right-9 top-8 h-[2px] w-12 -rotate-[16deg] bg-gradient-to-r from-transparent via-[#f3de6c]/45 to-transparent' />
               </motion.div>
             )}
 

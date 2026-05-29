@@ -11,7 +11,7 @@ export function ServicesPageNavbar() {
       <NavbarFlow
         emblem={
           <Link href="/" aria-label="Ir a inicio" className="cursor-pointer">
-            <ScrollXHeading className="w-auto! h-4! sm:h-5! whitespace-nowrap" />
+            <ScrollXHeading className="h-8 w-auto sm:h-10" />
           </Link>
         }
         links={[

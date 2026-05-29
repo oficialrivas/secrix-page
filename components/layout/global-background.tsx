@@ -11,7 +11,7 @@ export function GlobalBackground() {
           speed="3s"
           opacity={0.15}
           enableGlow={true}
-          lineColor="6, 182, 212"
+          lineColor="213, 180, 57"
           className="w-full h-full"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-[#060a16]/90 via-[#0b1129]/70 to-[#001c49]/90" />

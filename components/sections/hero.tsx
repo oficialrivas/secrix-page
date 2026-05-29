@@ -35,7 +35,7 @@ export function HeroSection() {
           speed="3s"
           opacity={0.15}
           enableGlow={true}
-          lineColor="6, 182, 212"
+          lineColor="213, 180, 57"
           className="w-full h-full"
         >
           <div className="absolute inset-0 bg-gradient-to-b from-[#060a16]/90 via-[#0b1129]/70 to-[#001c49]/90" />
@@ -51,7 +51,7 @@ export function HeroSection() {
         <NavbarFlow
           emblem={
             <Link href="/" aria-label="Ir a inicio" className="cursor-pointer">
-              <ScrollXHeading className="w-auto! h-4! sm:h-5! whitespace-nowrap" />
+              <ScrollXHeading className="h-8 w-auto sm:h-10" />
             </Link>
           }
           links={[
@@ -69,7 +69,7 @@ export function HeroSection() {
         <TextSpotlight
           textClassName='text-[120px] font-black font-helvetica tracking-[0.3em] bg-gradient-to-b from-white/20 via-white/5 to-black/25 bg-clip-text'
           text='SECRISK'
-          spotlightColor='6, 182, 212'
+           spotlightColor='213, 180, 57'
           animateOnPhone={true}
           spotlightArea={90}
           spotlightSize={100}
@@ -90,7 +90,7 @@ export function HeroSection() {
       >
         <SpotlightCard
            className='w-60 h-34 backdrop-blur-xl animate-card rounded-[32px] shadow-2xl shadow-black/40 border border-white/[0.06] relative after:absolute after:inset-0 after:rounded-[32px] after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent after:pointer-events-none'
-          spotlightColor='34, 211, 238'
+           spotlightColor='213, 180, 57'
           style={{
             background: 'linear-gradient(135deg, rgba(8,12,24,0.15), rgba(0,16,40,0.06))',
           }}
@@ -155,7 +155,7 @@ export function HeroSection() {
           <div className="mt-[40px] ml-[28px] w-fit">
             <SpotlightCard
               className="w-60 h-28 backdrop-blur-xl animate-card rounded-[32px] shadow-2xl shadow-black/40 border border-white/[0.06] relative after:absolute after:inset-0 after:rounded-[32px] after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent after:pointer-events-none"
-              spotlightColor="34, 211, 238"
+              spotlightColor="213, 180, 57"
               style={{
                 background: "linear-gradient(135deg, rgba(8,12,24,0.15), rgba(0,16,40,0.06))",
               }}
@@ -170,8 +170,8 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute top-[55%] sm:top-[58%] left-[2%] sm:left-[5%] z-0 w-[625px] h-[208px] scale-[0.8] sm:scale-[0.91] origin-left opacity-60">
-        <TextHoverEffect text="OSINT" />
+      <div className="absolute top-[80%] sm:top-[84%] left-0 sm:left-0 z-0 w-[700px] h-[230px] scale-[0.9] sm:scale-[1.03] origin-left opacity-60 pt-5 pr-8">
+        <TextHoverEffect text="O S I N T" />
       </div>
 
       <motion.div style={{ opacity: globeOpacity }} className="absolute inset-0 w-full h-full pointer-events-none [mask-image:linear-gradient(to_bottom,black_0%,black_75%,transparent_100%)]">

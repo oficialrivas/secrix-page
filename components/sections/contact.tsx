@@ -2,26 +2,12 @@
 
 import { motion } from 'motion/react';
 import { cn } from '@/lib/utils';
-import { ArrowRight, Mail, Phone, Headphones } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SeparatorPro } from '@/components/ui/seperatorpro';
 import GlobeWireframe from '@/components/ui/globe-wireframe';
 
 const smoothEase = [0.25, 0.1, 0.25, 1] as const;
-
-const CONTACT_LINKS = [
-  {
-    icon: Mail,
-    label: 'contact@yoursaas.ai',
-    href: 'mailto:contact@yoursaas.ai',
-  },
-  { icon: Phone, label: '+1 (800) 321 XX21', href: 'tel:+18003214321' },
-  {
-    icon: Headphones,
-    label: 'support@yoursaas.ai',
-    href: 'mailto:support@yoursaas.ai',
-  },
-];
 
 interface ContactWithGlobeProps {
   title?: string;
@@ -33,7 +19,7 @@ interface ContactWithGlobeProps {
 export default function ContactWithGlobe({
   title = 'Contact us',
   subtitle = 'Contact',
-  description = 'We are always looking for ways to improve our products and services. Contact us and let us know how we can help you.',
+  description = 'This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.',
   className,
 }: ContactWithGlobeProps) {
   return (
@@ -78,35 +64,19 @@ export default function ContactWithGlobe({
           >
             <div className='flex flex-col gap-1'>
               <h3 className='text-xl font-semibold text-zinc-900 dark:text-white'>
-                Get in touch
+                Better yet, see us in person!
               </h3>
               <p className='text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs'>
-                Reach out via any channel below. We typically reply within one
-                business day.
+                Submit form in order to schedule appointment to come visit our
+                office.
               </p>
             </div>
 
-            <div className='flex flex-col gap-3'>
-              {CONTACT_LINKS.map(({ icon: Icon, label, href }, i) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  initial={{ opacity: 0, x: -12 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.3 + i * 0.1,
-                    ease: smoothEase,
-                  }}
-                  className='group flex items-center gap-3 w-fit text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors duration-200'
-                >
-                  <div className='w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 group-hover:border-rose-300 dark:group-hover:border-rose-500/40 group-hover:bg-rose-50 dark:group-hover:bg-rose-500/10 flex items-center justify-center shrink-0 transition-all duration-200'>
-                    <Icon className='w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 group-hover:text-rose-500 dark:group-hover:text-rose-400 transition-colors duration-200' />
-                  </div>
-                  {label}
-                </motion.a>
-              ))}
+            <div className='flex flex-col gap-1 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed'>
+              <p>Two Datran Center</p>
+              <p>9130 South Dadeland Blvd</p>
+              <p>Suite 1902</p>
+              <p>Miami, FL 33156</p>
             </div>
 
             <div className='relative overflow-hidden h-52'>

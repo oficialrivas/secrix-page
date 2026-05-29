@@ -1,8 +1,6 @@
-"use client";
-import React from "react";
 import { AnimatedTestimonialGrid } from "@/components/ui/testimonial-2";
 
-const demoTestimonials = [
+const testimonials = [
   { imgSrc: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=300", alt: "Professional Man" },
   { imgSrc: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=300", alt: "Smiling Man" },
   { imgSrc: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300", alt: "Professional Woman" },
@@ -17,39 +15,22 @@ const demoTestimonials = [
   { imgSrc: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=300", alt: "Woman with a dog" },
 ];
 
-export const HeroParallax = ({
-  products,
-  header,
-}: {
-  products: {
-    title: string;
-    link: string;
-    thumbnail: string;
-  }[];
-  header?: React.ReactNode;
-}) => {
-  void products;
-
+export default function TestimonialSectionDemo() {
   return (
-    <div className="py-10 md:py-16 overflow-hidden antialiased relative">
-      {header && <div className="absolute top-0 left-0 w-full z-20 pointer-events-auto">{header}</div>}
-      <div className="pt-[104vh] sm:pt-[96vh] md:pt-[88vh]">
-        <AnimatedTestimonialGrid
-          testimonials={demoTestimonials}
-          badgeText="Testimonials"
-          title={
-            <>
-              Trusted by leaders
-              <br />
-              from various industries
-            </>
-          }
-          description="Learn why professionals trust our solutions to complete their customer journeys."
-          ctaText="Read Success Stories"
-          ctaHref="#"
-          className="py-20 md:py-24"
-        />
-      </div>
+    <div className="w-full bg-background">
+      <AnimatedTestimonialGrid
+        testimonials={testimonials}
+        title={
+          <>
+            Trusted by leaders
+            <br />
+            from various industries
+          </>
+        }
+        description="Learn why professionals trust our solutions to complete their customer journeys."
+        ctaText="Read Success Stories"
+        ctaHref="#"
+      />
     </div>
   );
-};
+}
