@@ -83,6 +83,6 @@ export default function ExpandableCards({
           </motion.div>
         );
       })}
-    </div>
+    </div> 
   );
 }

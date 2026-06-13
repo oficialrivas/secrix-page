@@ -38,7 +38,7 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.15, ease: smoothEase }}
-            className='text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white'
+            className='font-neue-montreal-medium text-4xl md:text-5xl lg:text-6xl text-zinc-900 dark:text-white'
           >
             {title}
           </motion.h2>
@@ -48,7 +48,7 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.3, ease: smoothEase }}
-            className='text-base text-zinc-500 dark:text-zinc-400 max-w-md'
+            className='max-w-md font-neue-montreal text-base text-zinc-500 dark:text-zinc-400'
           >
             {description}
           </motion.p>
@@ -63,16 +63,16 @@ export default function ContactWithGlobe({
             className='flex flex-col gap-6'
           >
             <div className='flex flex-col gap-1'>
-              <h3 className='text-xl font-semibold text-zinc-900 dark:text-white'>
+              <h3 className='font-neue-montreal-medium text-xl text-zinc-900 dark:text-white'>
                 Better yet, see us in person!
               </h3>
-              <p className='text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs'>
+              <p className='max-w-xs font-neue-montreal text-sm leading-relaxed text-zinc-500 dark:text-zinc-400'>
                 Submit form in order to schedule appointment to come visit our
                 office.
               </p>
             </div>
 
-            <div className='flex flex-col gap-1 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed'>
+            <div className='flex flex-col gap-1 font-neue-montreal text-sm leading-relaxed text-zinc-500 dark:text-zinc-400'>
               <p>Two Datran Center</p>
               <p>9130 South Dadeland Blvd</p>
               <p>Suite 1902</p>
@@ -100,10 +100,10 @@ export default function ContactWithGlobe({
             className='rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 flex flex-col gap-5'
           >
             <div>
-              <h3 className='text-lg font-semibold text-zinc-900 dark:text-white mb-0.5'>
+              <h3 className='mb-0.5 font-neue-montreal-medium text-lg text-zinc-900 dark:text-white'>
                 Send a message
               </h3>
-              <p className='text-sm text-zinc-500 dark:text-zinc-400'>
+              <p className='font-neue-montreal text-sm text-zinc-500 dark:text-zinc-400'>
                 Fill out the form and we'll get back to you promptly.
               </p>
             </div>
@@ -112,50 +112,50 @@ export default function ContactWithGlobe({
 
             <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
               <div className='flex flex-col gap-2'>
-                <label className='text-xs font-semibold tracking-widest uppercase text-zinc-400 dark:text-zinc-500'>
+                <label className='font-neue-montreal-medium text-xs tracking-widest uppercase text-zinc-400 dark:text-zinc-500'>
                   Full Name
                 </label>
                 <input
                   type='text'
                   placeholder='Ahdeetai'
-                  className='w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200'
+                  className='w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 font-neue-montreal text-sm text-zinc-800 outline-none transition-all duration-200 placeholder:text-zinc-400 focus:border-rose-400 focus:ring-2 focus:ring-rose-500/10 dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-200 dark:placeholder:text-zinc-600 dark:focus:border-rose-500/50'
                 />
               </div>
               <div className='flex flex-col gap-2'>
-                <label className='text-xs font-semibold tracking-widest uppercase text-zinc-400 dark:text-zinc-500'>
+                <label className='font-neue-montreal-medium text-xs tracking-widest uppercase text-zinc-400 dark:text-zinc-500'>
                   Company
                 </label>
                 <input
                   type='text'
                   placeholder='ScrollX UI'
-                  className='w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200'
+                  className='w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 font-neue-montreal text-sm text-zinc-800 outline-none transition-all duration-200 placeholder:text-zinc-400 focus:border-rose-400 focus:ring-2 focus:ring-rose-500/10 dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-200 dark:placeholder:text-zinc-600 dark:focus:border-rose-500/50'
                 />
               </div>
             </div>
 
             <div className='flex flex-col gap-2'>
-              <label className='text-xs font-semibold tracking-widest uppercase text-zinc-400 dark:text-zinc-500'>
+              <label className='font-neue-montreal-medium text-xs tracking-widest uppercase text-zinc-400 dark:text-zinc-500'>
                 Email Address
               </label>
               <input
                 type='email'
                 placeholder='support@scrollxui.com'
-                className='w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200'
+                className='w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-2.5 font-neue-montreal text-sm text-zinc-800 outline-none transition-all duration-200 placeholder:text-zinc-400 focus:border-rose-400 focus:ring-2 focus:ring-rose-500/10 dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-200 dark:placeholder:text-zinc-600 dark:focus:border-rose-500/50'
               />
             </div>
 
             <div className='flex flex-col gap-2'>
-              <label className='text-xs font-semibold tracking-widest uppercase text-zinc-400 dark:text-zinc-500'>
+              <label className='font-neue-montreal-medium text-xs tracking-widest uppercase text-zinc-400 dark:text-zinc-500'>
                 Message
               </label>
               <textarea
                 placeholder='Type your message here'
                 rows={4}
-                className='w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-3 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 resize-none transition-all duration-200'
+                className='w-full resize-none rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 font-neue-montreal text-sm text-zinc-800 outline-none transition-all duration-200 placeholder:text-zinc-400 focus:border-rose-400 focus:ring-2 focus:ring-rose-500/10 dark:border-zinc-700 dark:bg-zinc-800/60 dark:text-zinc-200 dark:placeholder:text-zinc-600 dark:focus:border-rose-500/50'
               />
             </div>
 
-            <Button className='w-fit h-11 px-8 rounded-xl font-semibold text-sm bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-900 group'>
+            <Button className='group h-11 w-fit rounded-xl bg-zinc-900 px-8 font-neue-montreal-medium text-sm text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100'>
               Submit
               <ArrowRight className='w-4 h-4 transition-transform duration-200 group-hover:translate-x-1' />
             </Button>

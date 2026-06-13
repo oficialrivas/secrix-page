@@ -162,7 +162,7 @@ export function ServicesScrollingShowcase() {
                 ))}
               </div>
 
-              <div className="absolute bottom-12 left-8 md:bottom-16 md:left-16">
+              <div className="absolute bottom-40 left-8 md:bottom-48 md:left-16">
                 <a
                   href="/contacto"
                   className="px-8 py-3 border border-[#f3de6c]/35 bg-[#d5b439]/12 text-[#f3de6c] font-neue-montreal-medium rounded-full uppercase tracking-[0.1em] hover:bg-[#d5b439]/22 transition-colors"

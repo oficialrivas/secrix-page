@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageEntrance } from "@/components/layout/page-entrance";
 import { ServicesPageNavbar } from "@/components/sections/services-page-navbar";
 import { AboutCards } from "@/components/sections/about-cards";
 
@@ -12,7 +13,9 @@ export default function AboutPage() {
   return (
     <>
       <ServicesPageNavbar />
-      <AboutCards />
+      <PageEntrance>
+        <AboutCards />
+      </PageEntrance>
     </>
   );
 }

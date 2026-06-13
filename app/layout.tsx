@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/config/site";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -81,8 +82,6 @@ export const metadata: Metadata = {
   },
 };
 
-import { GlobalBackground } from "@/components/layout/global-background";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -91,8 +90,10 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${geistSans.variable} ${geistMono.variable} ${neueMontreal.variable} ${neueMontrealMedium.variable} ${neueMontrealLight.variable} ${neueMontrealBold.variable} dark`}>
       <body className="min-h-screen flex flex-col antialiased bg-[#060a16]">
-        <main className="flex-1 relative z-10">{children}</main>
-        <Footer />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <main className="flex-1 relative z-10">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

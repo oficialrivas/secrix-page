@@ -5,13 +5,11 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { MotionGrid } from "@/components/ui/motion-grid";
 import GlobeWireframe from "@/components/ui/globe-wireframe";
-import NavbarFlow from "@/components/ui/navbar-flow";
-import ScrollXHeading from "@/components/heading";
-import ThemeSwitchIcon from "@/components/demos/themeswitchicon";
+import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { TextSpotlight } from "@/components/ui/text-spotlight";
 import WavyButton from "@/components/ui/wavy-button";
-import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { AvatarGroupWithTooltips } from "@/components/ui/avatar-group-with-tooltip";
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -47,22 +45,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.85)_0%,rgba(0,0,0,0.5)_40%,transparent_70%)]" />
       </motion.div>
 
-      <div className="fixed top-[3%] left-0 right-0 z-50">
-        <NavbarFlow
-          emblem={
-            <Link href="/" aria-label="Ir a inicio" className="cursor-pointer">
-              <ScrollXHeading className="h-8 w-auto sm:h-10" />
-            </Link>
-          }
-          links={[
-            { text: "Services", url: "/servicios" },
-            { text: "About", url: "/about" },
-            { text: "Contact", url: "/contacto" },
-          ]}
-          rightComponent={<ThemeSwitchIcon />}
-          showConnections={false}
-        />
-      </div>
+      <SiteNavbar />
 
       <div className="absolute top-[calc(22%+2px)] left-1/2 -translate-x-1/2 z-10 opacity-40"
         style={{ textShadow: '0 -2px 0 rgba(255,255,255,0.25), 0 3px 3px rgba(0,0,0,0.8), 0 6px 12px rgba(0,0,0,0.4), 1.5px 0 2px rgba(6,182,212,0.08), -1.5px 0 2px rgba(6,182,212,0.08)' }}>
@@ -122,7 +105,12 @@ export function HeroSection() {
               operational advantage
             </span>
           </div>
-          <WavyButton variant="outline" size="lg" className="text-2xl self-end mt-5" animationDuration={0.4}>
+          <WavyButton
+            variant="outline"
+            size="lg"
+            className="mt-5 self-end rounded-full border-[#f3de6c]/35 bg-[rgba(6,10,22,0.78)] text-2xl text-[#f9f1c9] shadow-[0_0_20px_rgba(213,180,57,0.2)] hover:border-[#f3de6c]/55 hover:bg-[rgba(12,20,42,0.88)]"
+            animationDuration={0.4}
+          >
             ↘
           </WavyButton>
         </div>
@@ -130,13 +118,13 @@ export function HeroSection() {
 
       <div className="absolute top-[29%] left-[-1%] sm:left-[3%] z-10 max-w-[400px] text-left">
         <div className="flex flex-col">
-          <p className="text-[50px] font-neue-montreal tracking-normal text-white/70 leading-tight uppercase">
+          <p className="text-[34px] font-neue-montreal tracking-normal text-white/70 leading-tight uppercase">
             Global Risk
           </p>
-          <p className="text-[50px] font-neue-montreal tracking-normal text-white/70 leading-tight uppercase">
+          <p className="text-[34px] font-neue-montreal tracking-normal text-white/70 leading-tight uppercase">
             Intelligence
           </p>
-          <p className="text-[25px] font-neue-montreal-light tracking-normal text-white/50 leading-snug mt-[39px] max-w-[280px]">
+          <p className="text-[22px] font-neue-montreal-light tracking-normal text-white/50 leading-snug mt-[39px] max-w-[280px]">
             Monitoring complex environments worldwide
           </p>
           <div
@@ -170,8 +158,11 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute top-[80%] sm:top-[84%] left-0 sm:left-0 z-0 w-[700px] h-[230px] scale-[0.9] sm:scale-[1.03] origin-left opacity-60 pt-5 pr-8">
-        <TextHoverEffect text="O S I N T" />
+      <div className="absolute top-[81%] sm:top-[84%] left-[4%] sm:left-[6%] z-20">
+        <div className="flex flex-col items-center gap-2.5">
+          <p className="text-center font-neue-montreal-medium text-xl md:text-3xl tracking-[0.08em] leading-none text-white/90">Our Group</p>
+          <AvatarGroupWithTooltips />
+        </div>
       </div>
 
       <motion.div style={{ opacity: globeOpacity }} className="absolute inset-0 w-full h-full pointer-events-none [mask-image:linear-gradient(to_bottom,black_0%,black_75%,transparent_100%)]">

@@ -111,9 +111,9 @@ function AnimatedCounter({
         'text-center flex-1 min-w-0 flex flex-col justify-center h-full',
       )}
     >
-      <motion.div
-        className={cn(
-          'text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-neue-montreal mb-8 sm:mb-10 whitespace-nowrap',
+        <motion.div
+          className={cn(
+          'text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-neue-montreal mb-8 sm:mb-10 whitespace-nowrap',
         )}
         initial={{ scale: 0.8 }}
         animate={isInView ? { scale: 1 } : { scale: 0.8 }}
@@ -170,7 +170,7 @@ export default function StatsCount({
       >
         <h2
         className={cn(
-          'text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-neue-montreal-medium tracking-wide px-4',
+          'text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-neue-montreal-medium tracking-wide px-4 text-white',
         )}
         >
           <span className='hidden sm:inline'>

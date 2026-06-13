@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageEntrance } from "@/components/layout/page-entrance";
 import { ServicesPageNavbar } from "@/components/sections/services-page-navbar";
 import { ServicesScrollingShowcase } from "@/components/sections/services-scrolling-showcase";
 
@@ -13,9 +14,9 @@ export default function ServiciosPage() {
     <>
       <ServicesPageNavbar />
 
-      <div className="pt-20 md:pt-24">
+      <PageEntrance className="pt-20 md:pt-24">
         <ServicesScrollingShowcase />
-      </div>
+      </PageEntrance>
     </>
   );
 }

@@ -5,28 +5,92 @@ services:
       dockerfile: Dockerfile
     container_name: secrix-web
     restart: unless-stopped
+    env_file:
+      - .env.production
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - SUPABASE_URL=http://supabase-api:8000
+      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL:-http://localhost:54321}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY:-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlzcyI6InNlY3JpeC1sb2NhbCIsImlhdCI6MTc4MDc4MzM1OSwiZXhwIjoyMDk2MTQzMzU5fQ.Mels36upUx-CmwVg-bHxfF6kf4zHaCh_s0PvgFqFjCU}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY:-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic2VydmljZV9yb2xlIiwiaXNzIjoic2Vjcml4LWxvY2FsIiwiaWF0IjoxNzgwNzgzMzU5LCJleHAiOjIwOTYxNDMzNTl9.xgvWo1EyDFbetwK_qW55UIuR_OhvQPs_GtuqnHUylCA}
+      - ARTICLE_ADMIN_TOKEN=${ARTICLE_ADMIN_TOKEN:-local-dev-article-token-change-me}
+    depends_on:
+      supabase-api:
+        condition: service_started
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000/"]
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 10s
+      start_period: 20s
     networks:
       - secrix-network
-    deploy:
-      resources:
-        limits:
-          cpus: "1"
-          memory: 512M
-        reservations:
-          cpus: "0.5"
-          memory: 256M
+
+  supabase-db:
+    image: postgres:15-alpine
+    container_name: secrix-supabase-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+    volumes:
+      - supabase-db-data:/var/lib/postgresql/data
+      - ./supabase/schema.sql:/docker-entrypoint-initdb.d/00-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - secrix-network
+
+  supabase-rest:
+    image: postgrest/postgrest:v12.2.8
+    container_name: secrix-supabase-rest
+    restart: unless-stopped
+    environment:
+      - PGRST_DB_URI=postgres://postgres:${POSTGRES_PASSWORD:-postgres}@supabase-db:5432/postgres
+      - PGRST_DB_SCHEMAS=public
+      - PGRST_DB_ANON_ROLE=anon
+      - PGRST_JWT_SECRET=${SUPABASE_JWT_SECRET:-change-this-local-supabase-jwt-secret-at-least-32-chars}
+      - PGRST_SERVER_PORT=3000
+    depends_on:
+      supabase-db:
+        condition: service_healthy
+    networks:
+      - secrix-network
+
+  supabase-api:
+    image: nginx:1.27-alpine
+    container_name: secrix-supabase-api
+    restart: unless-stopped
+    ports:
+      - "54321:8000"
+    volumes:
+      - ./supabase/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - supabase-rest
+    networks:
+      - secrix-network
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: secrix-cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate --url http://secrix-web:3000
+    depends_on:
+      - secrix-web
+    networks:
+      - secrix-network
 
 networks:
   secrix-network:
     driver: bridge
+
+volumes:
+  supabase-db-data:
