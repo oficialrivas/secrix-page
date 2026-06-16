@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { navigationLinks } from "@/data";
 import { siteConfig } from "@/config/site";
-import { Menu, X } from "lucide-react";
+import { Shield } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function Header() {
@@ -36,7 +37,14 @@ export function Header() {
             aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={isOpen}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <Image
+              src="/shield.svg"
+              alt="Shield"
+              width={24}
+              height={24}
+              className="w-6 h-6"
+              unoptimized
+            />
           </button>
         </div>
       </div>

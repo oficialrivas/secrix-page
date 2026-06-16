@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { Mail } from "lucide-react";
+import { FaTwitter, FaLinkedinIn, FaInstagram, FaEnvelope } from "react-icons/fa";
 import { ModemAnimatedFooter } from "@/components/ui/modem-animated-footer";
 
 export function Footer() {
@@ -11,22 +10,22 @@ export function Footer() {
       brandDescription="Global security, intelligence, and risk management for complex environments."
       socialLinks={[
         {
-          icon: <Image src="/ICONO1.png" alt="X" width={40} height={40} className="h-10 w-10 object-contain" />,
+          icon: <FaTwitter className="h-10 w-10" />,
           href: "#",
           label: "X",
         },
         {
-          icon: <Image src="/ICONO2.png" alt="LinkedIn" width={40} height={40} className="h-10 w-10 object-contain" />,
+          icon: <FaLinkedinIn className="h-10 w-10" />,
           href: "#",
           label: "LinkedIn",
         },
         {
-          icon: <Image src="/ICONO3.png" alt="Instagram" width={40} height={40} className="h-10 w-10 object-contain" />,
+          icon: <FaInstagram className="h-10 w-10" />,
           href: "#",
           label: "Instagram",
         },
         {
-          icon: <Mail className="h-10 w-10" />,
+          icon: <FaEnvelope className="h-10 w-10" />,
           href: "mailto:info@secrisk.com",
           label: "Email",
         },

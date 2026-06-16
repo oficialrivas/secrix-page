@@ -7,7 +7,6 @@ import { MotionGrid } from "@/components/ui/motion-grid";
 import GlobeWireframe from "@/components/ui/globe-wireframe";
 import { SiteNavbar } from "@/components/layout/site-navbar";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
-import { TextSpotlight } from "@/components/ui/text-spotlight";
 import WavyButton from "@/components/ui/wavy-button";
 import { AvatarGroupWithTooltips } from "@/components/ui/avatar-group-with-tooltip";
 
@@ -47,17 +46,20 @@ export function HeroSection() {
 
       <SiteNavbar />
 
-      <div className="absolute top-[calc(22%+2px)] left-1/2 -translate-x-1/2 z-10 opacity-40"
-        style={{ textShadow: '0 -2px 0 rgba(255,255,255,0.25), 0 3px 3px rgba(0,0,0,0.8), 0 6px 12px rgba(0,0,0,0.4), 1.5px 0 2px rgba(6,182,212,0.08), -1.5px 0 2px rgba(6,182,212,0.08)' }}>
-        <TextSpotlight
-          textClassName='text-[120px] font-black font-helvetica tracking-[0.3em] bg-gradient-to-b from-white/20 via-white/5 to-black/25 bg-clip-text'
-          text='SECRISK'
-           spotlightColor='213, 180, 57'
-          animateOnPhone={true}
-          spotlightArea={90}
-          spotlightSize={100}
-        />
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        className="absolute top-[35%] sm:top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 text-center transform"
+      >
+        <h2 className="text-4xl md:text-6xl font-neue-montreal-medium text-white mb-4">
+          Protect What Matters
+        </h2>
+        <p className="text-lg md:text-xl font-neue-montreal text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <span className="block">Intelligence-driven security solutions</span>
+          <span className="block">that help organizations operate confidently in complex high-risk environments across the Americas.</span>
+        </p>
+      </motion.div>
 
       <motion.div
         style={{ x: springX, y: springY }}
@@ -72,7 +74,7 @@ export function HeroSection() {
         className="absolute top-[33%] sm:top-[38%] right-[2.5%] sm:right-[7.5%] z-20 max-w-[280px] sm:max-w-[320px]"
       >
         <SpotlightCard
-           className='w-60 h-34 backdrop-blur-xl animate-card rounded-[32px] shadow-2xl shadow-black/40 border border-white/[0.06] relative after:absolute after:inset-0 after:rounded-[32px] after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent after:pointer-events-none'
+           className='w-60 h-34 backdrop-blur-xl animate-card rounded-[32px] shadow-2xl shadow-black/40 border border-[#f3de6c]/20 relative after:absolute after:inset-0 after:rounded-[32px] after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent after:pointer-events-none'
            spotlightColor='213, 180, 57'
           style={{
             background: 'linear-gradient(135deg, rgba(8,12,24,0.15), rgba(0,16,40,0.06))',
@@ -133,7 +135,7 @@ export function HeroSection() {
             onMouseLeave={() => setLineRetract(false)}
           >
             <motion.div
-              className="h-px w-full bg-white/70 origin-left"
+              className="h-px w-full bg-[#f3de6c]/70 origin-left"
               initial={{ scaleX: 0, opacity: 0 }}
               animate={{ scaleX: lineRetract ? 0 : 1, opacity: 0.9 }}
               transition={{ duration: lineRetract ? 1.6 : 1.4, ease: "easeInOut" }}
@@ -142,7 +144,7 @@ export function HeroSection() {
 
           <div className="mt-[40px] ml-[28px] w-fit">
             <SpotlightCard
-              className="w-60 h-28 backdrop-blur-xl animate-card rounded-[32px] shadow-2xl shadow-black/40 border border-white/[0.06] relative after:absolute after:inset-0 after:rounded-[32px] after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent after:pointer-events-none"
+              className="w-60 h-28 backdrop-blur-xl animate-card rounded-[32px] shadow-2xl shadow-black/40 border border-[#f3de6c]/20 relative after:absolute after:inset-0 after:rounded-[32px] after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent after:pointer-events-none"
               spotlightColor="213, 180, 57"
               style={{
                 background: "linear-gradient(135deg, rgba(8,12,24,0.15), rgba(0,16,40,0.06))",

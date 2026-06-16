@@ -44,7 +44,7 @@ export function ApproachSection() {
   const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
   return (
-    <section className="relative w-full mt-32 md:mt-40 pt-44 md:pt-52 mb-48 md:mb-64 bg-transparent z-10">
+    <section className="relative w-full mt-24 md:mt-32 pt-36 md:pt-44 mb-48 md:mb-64 bg-transparent z-10">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 items-center gap-12 xl:grid-cols-[1fr_1fr]">
           <StatsCount
@@ -60,7 +60,7 @@ export function ApproachSection() {
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
-              className="absolute -right-[7rem] top-[34%] flex h-[28rem] w-[28rem] -translate-y-1/2 items-center justify-center md:-right-[9rem] xl:-right-[5rem]"
+              className="absolute -right-[4rem] top-[34%] flex h-[28rem] w-[28rem] -translate-y-1/2 items-center justify-center md:-right-[6rem] xl:-right-[2rem]"
             >
               <div className="flex h-20 w-20 items-center justify-center rounded-full border border-[#f3de6c]/35 bg-[rgba(6,10,22,0.88)] shadow-[0_0_24px_rgba(213,180,57,0.24)]">
                 <FaShieldAlt className="h-9 w-9 text-[#f3de6c]" />

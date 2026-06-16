@@ -5,37 +5,37 @@ import type React from "react";
 
 const teamMembers = [
   {
-    image: "/miguel fotocuadrada.png",
+    image: "/opcion%207.png",
     name: "Antelmo Terrades",
     role: "Founder & Chief Executive Officer",
   },
   {
-    image: "/miguel fotocuadrada.png",
+    image: "/opcion%202.2.png",
     name: "Alex Terrades",
     role: "Executive Vice President",
   },
   {
-    image: "/miguel fotocuadrada.png",
+    image: "/opcion%204.png",
     name: "Andy Terrades",
     role: "Vice President Of Operations",
   },
   {
-    image: "/miguel fotocuadrada.png",
+    image: "/ia.png",
     name: "Julio Rodriguez",
     role: "Director of Global Security & Risk Compliance",
   },
   {
-    image: "/miguel fotocuadrada.png",
+    image: "/opcion%203.png",
     name: "Ivan Simonovis",
     role: "Director of LATAM & Government Affairs",
   },
   {
-    image: "/miguel fotocuadrada.png",
+    image: "/opcion%201.1.png",
     name: "Steve Hanna",
     role: "Senior Executive Advisor",
   },
   {
-    image: "/miguel fotocuadrada.png",
+    image: "/opcion%208%20.png",
     name: "Miguel Bolivar",
     role: "Leadership Team",
   },
@@ -78,7 +78,7 @@ export default function Team() {
           <TeamMarquee>
             {teamMembers.map((member) => (
               <div className="group/card flex w-64 shrink-0 flex-col" key={member.name}>
-                <div className="relative h-[23rem] w-full overflow-hidden rounded-2xl bg-white ring-1 ring-white/30">
+                <div className="relative h-[23rem] w-full overflow-hidden rounded-2xl bg-white ring-1 ring-[#f3de6c]/30">
                   <Image
                     alt={member.name}
                     className="h-full w-full object-cover grayscale transition-all duration-300 group-hover/card:grayscale-0"

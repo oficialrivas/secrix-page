@@ -14,46 +14,58 @@ interface ProjectData {
 
 const PROJECT_DATA: ProjectData[] = [
   {
-    image: "/ia.png",
+    image: "/opcion%207.png",
     name: "Antelmo Terrades",
     role: "Founder & Chief Executive Officer",
-    summary: "30+ years leading law enforcement, tactical operations, international security programs, and intelligence-driven risk strategy.",
+    summary: "Founder & CEO with 30+ years experience: 20 years in law enforcement (SWAT, criminal investigations, advanced tactical training). Founded Public Safety International (IPSA) and led government training programs in Peru and a regional training center in Florida. Expert in defense, energy, aviation, and critical infrastructure. Direct approach: identify threats early, act decisively.",
   },
   {
-    image: "/ia.png",
+    image: "/opcion%202.2.png",
     name: "Alex Terrades",
     role: "Executive Vice President",
-    summary: "Former Miami detective focused on investigative intelligence, digital forensics, high-risk operations, and executive protection.",
+    summary: "Former Miami PD detective, Investigative Intelligence Unit. Specialist in digital surveillance, digital forensics, and multi-agency operations against criminal threats and national security. Member of interagency Rapid Deployment Force (active shooter, civil unrest, dignitary protection, counter-terrorism). Private sector: security assessments, asset recovery, executive protection, and international threat analysis.",
   },
   {
-    image: "/ia.png",
+    image: "/opcion%204.png",
     name: "Andy Terrades",
     role: "Vice President Of Operations",
-    summary: "Operations leader integrating AI, security audits, UAS/ISR capabilities, and critical infrastructure protection across LATAM.",
+    summary: "MBA in AI (Florida International University). Security audits and investigations in LATAM (cash-in-transit, critical infrastructure). Certified UAS/ISR pilot for aerial reconnaissance. USMC Reservist (leadership, discipline, mission-focused). Integrates technology and intelligence into operational workflows for efficiency and results.",
   },
   {
-    image: "/ia.png",
+    image: "/opcion%209.png",
     name: "Julio Rodriguez",
     role: "Director of Global Security & Risk Compliance",
-    summary: "30+ years in diplomatic security, global compliance frameworks, enterprise risk, and international protection operations.",
+    summary: "30+ years in diplomatic security and compliance (U.S. and LATAM). Former Chief of Protection for U.S. Ambassador in Dominican Republic (State Dept, Bureau of Diplomatic Security). Certifications: BASC, OEA, CTPAT, ISPS. Led large-scale security operations, physical/electronic projects, and enterprise risk programs. Structured approach: translates complex regulatory requirements into scalable operational solutions.",
   },
   {
-    image: "/ia.png",
-    name: "Ivan Simonovis",
+    image: "/opcion%203.png",
+    name: "Iván Simonovis",
     role: "Director of LATAM & Government Affairs",
-    summary: "Four decades in public safety, government affairs, tactical policing, and strategic security advisory across Latin America.",
+    summary: "4+ decades in LATAM public security. Detective since 1981, founded the Special Actions Brigade (BAE) with Germany's GSG-9 and U.S. agencies. Former Secretary of Citizen Security for Caracas (metro operations, large-scale urban security strategies). Advisor on institutional reform, international cooperation, organized crime, corruption, and transnational threats. Deep government relationships across the region.",
   },
   {
-    image: "/ia.png",
+    image: "/opcion%201.1.png",
     name: "Steve Hanna",
     role: "Senior Executive Advisor",
-    summary: "Senior advisor on geopolitical risk, international operations, government engagement, and complex-market strategy.",
+    summary: "3+ decades in national security, international affairs, and strategic advisory. Senior roles in global technology, security, and natural resources. Corporate restructuring, international partnerships, and stabilization of large projects in complex environments. Aligns private initiatives with government policy and regulations. Stabilizes high-risk situations, builds government-industry trust.",
   },
   {
-    image: "/ia.png",
+    image: "/opcion%208%20.png",
     name: "Miguel Bolivar",
-    role: "Leadership Team",
-    summary: "Leadership support across security, intelligence, and operational risk management initiatives.",
+    role: "Director special projects",
+    summary: "U.S. Army combat veteran, Field Grade Officer, Counterintelligence Special Agent. 30+ years in Army, Law Enforcement, Intelligence, and Special Operations. Proven leader of multi-agency, multinational, and interdepartmental organizations for high-risk operations. Expert in Intelligence, Security, Geopolitics (LATAM focus). Bronze Star Medal, recognitions from U.S. Customs, DEA, FBI. B.S. Criminal Justice, graduate work in Latin American Studies. Counterterrorism and organized crime expert in LATAM and Middle East.",
+  },
+  {
+    image: "/opcion%205.1.png",
+    name: "Lutalo Muhummud",
+    role: "Associate partner - East Africa",
+    summary: "25+ years executive protection, security ops, tactical training, crisis management (Africa, Middle East, Caribbean). 2004-2024 UN: led VIP protection in Somalia, Sudan, Iraq, Lebanon, Israel. Specialist: VIP protection, firearms, defensive tactics, combat. Prior: Risk Agent, Public Safety International (Lloyd's). Trained law enforcement/military globally. Sergeant-at-Arms, City of Miami (Mayor). Military: Trinidad & Tobago, Special Forces, Presidential Guard. Expertise: executive/VIP protection, security risk, tactical instruction, crisis management.",
+  },
+  {
+    image: "/opcion%206.png",
+    name: "Hugo Hira",
+    role: "Associate partner- Brazil",
+    summary: "33 years São Paulo Civil Police: organized crime investigations, high-risk operations, tactical training. Certified instructor: firearms/marksmanship, police tactical operations, defensive/evasive/offensive driving. Post-retirement: security risk consulting, inspections. Expertise: cash-in-transit, valuables custody, banking security, mining. Advised international insurance/reinsurance markets in Brazil. Attorney. Associate Partner Brazil: legal knowledge, law enforcement leadership, operational security, strategic risk management for public/private sectors.",
   },
 ];
 
@@ -103,7 +115,7 @@ export function Component() {
     lastScrollTime: 0,
     dragStart: { y: 0, scrollY: 0 },
     projectHeight: 0, // Will be set on mount
-    minimapHeight: 200,
+    minimapHeight: 280,
   });
 
   // Refs to store DOM elements

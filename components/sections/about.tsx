@@ -41,7 +41,7 @@ const AboutHeader = () => {
           </div>
 
           <div className="flex-[4.6] pt-8 pl-6 md:pl-8">
-            <div className="relative border-l-4 border-blue-500/50 pl-6 md:pl-7">
+            <div className="relative border-l-4 border-[#f3de6c]/50 pl-6 md:pl-7">
               <motion.p
                 initial={{ opacity: 0, x: 80 }}
                 whileInView={{ opacity: 1, x: 0 }}
