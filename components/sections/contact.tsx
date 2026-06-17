@@ -19,7 +19,7 @@ interface ContactWithGlobeProps {
 export default function ContactWithGlobe({
   title = 'Contact us',
   subtitle = 'Contact',
-  description = 'This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.',
+  description = 'Share your security needs with our team and we will respond with discretion, clarity, and operational focus.',
   className,
 }: ContactWithGlobeProps) {
   return (
@@ -54,25 +54,25 @@ export default function ContactWithGlobe({
           </motion.p>
         </div>
 
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-start'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 max-w-5xl mx-auto items-start'>
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.0, delay: 0.2, ease: smoothEase }}
-            className='flex flex-col gap-6'
+            className='flex flex-col gap-11'
           >
-            <div className='flex flex-col gap-1'>
+            <div className='flex flex-col gap-4'>
               <h3 className='font-neue-montreal-medium text-xl text-zinc-900 dark:text-white'>
-                Better yet, see us in person!
+                Miami headquarters
               </h3>
               <p className='max-w-xs font-neue-montreal text-sm leading-relaxed text-zinc-500 dark:text-zinc-400'>
-                Submit form in order to schedule appointment to come visit our
-                office.
+                Meetings are scheduled by request to ensure focused,
+                confidential attention.
               </p>
             </div>
 
-            <div className='flex flex-col gap-1 font-neue-montreal text-sm leading-relaxed text-zinc-500 dark:text-zinc-400'>
+            <div className='flex flex-col gap-3 font-neue-montreal text-sm leading-relaxed text-zinc-500 dark:text-zinc-400'>
               <p>Two Datran Center</p>
               <p>9130 South Dadeland Blvd</p>
               <p>Suite 1902</p>
@@ -97,14 +97,14 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.0, delay: 0.35, ease: smoothEase }}
-            className='rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 flex flex-col gap-5'
+            className='rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 flex flex-col gap-8'
           >
-            <div>
+            <div className='space-y-2'>
               <h3 className='mb-0.5 font-neue-montreal-medium text-lg text-zinc-900 dark:text-white'>
                 Send a message
               </h3>
               <p className='font-neue-montreal text-sm text-zinc-500 dark:text-zinc-400'>
-                Fill out the form and we'll get back to you promptly.
+                Fill out the form and we&apos;ll get back to you promptly.
               </p>
             </div>
 

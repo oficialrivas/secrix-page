@@ -10,6 +10,7 @@ interface ProjectData {
   image: string;
   role: string;
   summary: string;
+  details: string;
 }
 
 const PROJECT_DATA: ProjectData[] = [
@@ -18,54 +19,63 @@ const PROJECT_DATA: ProjectData[] = [
     name: "Antelmo Terrades",
     role: "Founder & Chief Executive Officer",
     summary: "Founder & CEO with 30+ years experience: 20 years in law enforcement (SWAT, criminal investigations, advanced tactical training). Founded Public Safety International (IPSA) and led government training programs in Peru and a regional training center in Florida. Expert in defense, energy, aviation, and critical infrastructure. Direct approach: identify threats early, act decisively.",
+    details: "Mr. Terrades expanded operations internationally through U.S. government-contracted training programs in Peru and the development of a regional law enforcement training center in Florida. His work emphasizes measurable impact, business continuity, and real-world security strategies built for high-risk environments.",
   },
   {
     image: "/opcion%202.2.png",
     name: "Alex Terrades",
     role: "Executive Vice President",
     summary: "Former Miami PD detective, Investigative Intelligence Unit. Specialist in digital surveillance, digital forensics, and multi-agency operations against criminal threats and national security. Member of interagency Rapid Deployment Force (active shooter, civil unrest, dignitary protection, counter-terrorism). Private sector: security assessments, asset recovery, executive protection, and international threat analysis.",
+    details: "He aligns strategic operations with the firm’s long-term objectives across domestic and international markets. His leadership focuses on precision, accountability, and integrating intelligence, technology, and field operations into cohesive risk management programs.",
   },
   {
     image: "/opcion%204.png",
     name: "Andy Terrades",
     role: "Vice President Of Operations",
     summary: "MBA in AI (Florida International University). Security audits and investigations in LATAM (cash-in-transit, critical infrastructure). Certified UAS/ISR pilot for aerial reconnaissance. USMC Reservist (leadership, discipline, mission-focused). Integrates technology and intelligence into operational workflows for efficiency and results.",
+    details: "He oversees service delivery standards and the implementation of client-focused security solutions. His experience in Latin America includes security audits, investigations, cash-in-transit risk, and critical infrastructure protection, strengthened by his UAS/ISR capabilities.",
   },
   {
     image: "/opcion%209.png",
     name: "Julio Rodriguez",
     role: "Director of Global Security & Risk Compliance",
     summary: "30+ years in diplomatic security and compliance (U.S. and LATAM). Former Chief of Protection for U.S. Ambassador in Dominican Republic (State Dept, Bureau of Diplomatic Security). Certifications: BASC, OEA, CTPAT, ISPS. Led large-scale security operations, physical/electronic projects, and enterprise risk programs. Structured approach: translates complex regulatory requirements into scalable operational solutions.",
+    details: "He leads the development and oversight of international security frameworks across diverse jurisdictions. His experience includes BASC, OEA, CTPAT, and ISPS standards, helping clients turn complex regulatory requirements into practical, scalable security programs.",
   },
   {
     image: "/opcion%203.png",
     name: "Iván Simonovis",
     role: "Director of LATAM & Government Affairs",
     summary: "4+ decades in LATAM public security. Detective since 1981, founded the Special Actions Brigade (BAE) with Germany's GSG-9 and U.S. agencies. Former Secretary of Citizen Security for Caracas (metro operations, large-scale urban security strategies). Advisor on institutional reform, international cooperation, organized crime, corruption, and transnational threats. Deep government relationships across the region.",
+    details: "He leads strategic engagement across Latin America, supporting government relations, institutional partnerships, and regional advisory initiatives. His background includes metropolitan security operations, public safety strategy, and cooperation with international partners on organized crime and transnational threats.",
   },
   {
     image: "/opcion%201.1.png",
     name: "Steve Hanna",
     role: "Senior Executive Advisor",
     summary: "3+ decades in national security, international affairs, and strategic advisory. Senior roles in global technology, security, and natural resources. Corporate restructuring, international partnerships, and stabilization of large projects in complex environments. Aligns private initiatives with government policy and regulations. Stabilizes high-risk situations, builds government-industry trust.",
+    details: "He advises senior leadership on geopolitical dynamics, cross-border initiatives, stakeholder expectations, and regulatory alignment. His experience includes corporate restructuring, international partnerships, market entry, and stabilization of large-scale projects in complex jurisdictions.",
   },
   {
     image: "/opcion%208%20.png",
     name: "Miguel Bolivar",
     role: "Director special projects",
-    summary: "U.S. Army combat veteran, Field Grade Officer, Counterintelligence Special Agent. 30+ years in Army, Law Enforcement, Intelligence, and Special Operations. Proven leader of multi-agency, multinational, and interdepartmental organizations for high-risk operations. Expert in Intelligence, Security, Geopolitics (LATAM focus). Bronze Star Medal, recognitions from U.S. Customs, DEA, FBI. B.S. Criminal Justice, graduate work in Latin American Studies. Counterterrorism and organized crime expert in LATAM and Middle East.",
+    summary: "U.S. Army combat veteran, Field Grade Officer, and Counterintelligence Special Agent with 30+ years across military, law enforcement, intelligence, and special operations. Expert in intelligence, security, investigations, and geopolitics with a focus on Latin America.",
+    details: "His career includes leading cross-functional, inter-agency, inter-departmental, and multinational teams through high-risk operations. He brings deep expertise in intelligence, investigations, analysis, and geopolitics, with emphasis on Latin America, terrorist organizations, and organized crime networks.",
   },
   {
     image: "/opcion%205.1.png",
     name: "Lutalo Muhummud",
     role: "Associate partner - East Africa",
-    summary: "25+ years executive protection, security ops, tactical training, crisis management (Africa, Middle East, Caribbean). 2004-2024 UN: led VIP protection in Somalia, Sudan, Iraq, Lebanon, Israel. Specialist: VIP protection, firearms, defensive tactics, combat. Prior: Risk Agent, Public Safety International (Lloyd's). Trained law enforcement/military globally. Sergeant-at-Arms, City of Miami (Mayor). Military: Trinidad & Tobago, Special Forces, Presidential Guard. Expertise: executive/VIP protection, security risk, tactical instruction, crisis management.",
+    summary: "25+ years in executive protection, security operations, tactical training, and crisis management across Africa, the Middle East, and the Caribbean. Former United Nations security leader with experience in VIP protection, firearms instruction, defensive tactics, and high-risk operations.",
+    details: "From 2004 to 2024, he served in senior operational and leadership roles within the United Nations Security System, leading close protection teams across Somalia, Sudan, Iraq, Lebanon, Israel, and the Palestinian Territories. His expertise includes VIP protection, tactical instruction, and crisis management.",
   },
   {
     image: "/opcion%206.png",
     name: "Hugo Hira",
     role: "Associate partner- Brazil",
-    summary: "33 years São Paulo Civil Police: organized crime investigations, high-risk operations, tactical training. Certified instructor: firearms/marksmanship, police tactical operations, defensive/evasive/offensive driving. Post-retirement: security risk consulting, inspections. Expertise: cash-in-transit, valuables custody, banking security, mining. Advised international insurance/reinsurance markets in Brazil. Attorney. Associate Partner Brazil: legal knowledge, law enforcement leadership, operational security, strategic risk management for public/private sectors.",
+    summary: "33 years with the Civil Police of Sao Paulo, specializing in organized crime investigations, high-risk operations, tactical training, firearms instruction, and defensive, evasive, and offensive driving. He later transitioned into private security risk consulting.",
+    details: "He served 33 years with the Civil Police of Sao Paulo and later advised private-sector clients on risk assessment, security inspections, cash-in-transit operations, valuables custody, banking security, mining, and insurance/reinsurance risk matters throughout Brazil.",
   },
 ];
 
@@ -99,6 +109,7 @@ const getProjectNumber = (index: number) => {
 };
 
 export function Component() {
+  const [expandedProfile, setExpandedProfile] = React.useState<string | null>(null);
   const [visibleRange, setVisibleRange] = React.useState({
     min: -CONFIG.BUFFER_SIZE,
     max: CONFIG.BUFFER_SIZE,
@@ -180,7 +191,6 @@ export function Component() {
 
   const updatePositions = () => {
     const s = state.current;
-    const minimapY = (s.currentY * s.minimapHeight) / s.projectHeight;
 
     // Update Projects
     projectsRef.current.forEach((el, index) => {
@@ -192,8 +202,8 @@ export function Component() {
 
     // Update Info
     infoRef.current.forEach((el, index) => {
-      const y = index * s.minimapHeight + minimapY;
-      el.style.transform = `translateY(${y}px)`;
+      const y = index * s.projectHeight + s.currentY;
+      el.style.transform = `translateY(calc(-50% + ${y}px))`;
     });
   };
 
@@ -365,6 +375,24 @@ export function Component() {
                   </div>
                   <div className="minimap-item-info-row">
                     <p>{data.summary}</p>
+                  </div>
+                  <button
+                    className="minimap-more-button"
+                    onClick={() =>
+                      setExpandedProfile((current) =>
+                        current === data.name ? null : data.name
+                      )
+                    }
+                    type="button"
+                  >
+                    {expandedProfile === data.name ? "Show less" : "Learn more"}
+                  </button>
+                  <div
+                    className={`minimap-extra-info ${
+                      expandedProfile === data.name ? "is-open" : ""
+                    }`}
+                  >
+                    <p>{data.details}</p>
                   </div>
                 </div>
               );

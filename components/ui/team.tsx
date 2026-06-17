@@ -20,13 +20,13 @@ const teamMembers = [
     role: "Vice President Of Operations",
   },
   {
-    image: "/ia.png",
+    image: "/opcion%209.png",
     name: "Julio Rodriguez",
     role: "Director of Global Security & Risk Compliance",
   },
   {
     image: "/opcion%203.png",
-    name: "Ivan Simonovis",
+    name: "Iván Simonovis",
     role: "Director of LATAM & Government Affairs",
   },
   {
@@ -37,7 +37,17 @@ const teamMembers = [
   {
     image: "/opcion%208%20.png",
     name: "Miguel Bolivar",
-    role: "Leadership Team",
+    role: "Director special projects",
+  },
+  {
+    image: "/opcion%205.1.png",
+    name: "Lutalo Muhummud",
+    role: "Associate partner - East Africa",
+  },
+  {
+    image: "/opcion%206.png",
+    name: "Hugo Hira",
+    role: "Associate partner- Brazil",
   },
 ];
 

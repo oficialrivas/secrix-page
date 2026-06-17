@@ -158,6 +158,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
     {},
   );
   const [isMounted, setIsMounted] = useState(true);
+  const [isOnLightCard, setIsOnLightCard] = useState(false);
 
   const navMotion = useAnimation();
   const emblemMotion = useAnimation();
@@ -172,6 +173,47 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
     detectMobile();
     window.addEventListener('resize', detectMobile);
     return () => window.removeEventListener('resize', detectMobile);
+  }, []);
+
+  useEffect(() => {
+    let frame = 0;
+
+    const updateNavbarContrast = () => {
+      if (frame) return;
+
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        const sensor = Array.from(
+          document.querySelectorAll('[data-navbar-sensor="true"]'),
+        ).find((element) => {
+          const rect = element.getBoundingClientRect();
+          return rect.width > 0 && rect.height > 0;
+        });
+        if (!sensor) return;
+
+        const rect = sensor.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        const elements = document.elementsFromPoint(x, y);
+        const onLightCard = elements.some((element) =>
+          element.closest('[data-navbar-invert="true"]'),
+        );
+
+        setIsOnLightCard((current) =>
+          current === onLightCard ? current : onLightCard,
+        );
+      });
+    };
+
+    updateNavbarContrast();
+    window.addEventListener('scroll', updateNavbarContrast, { passive: true });
+    window.addEventListener('resize', updateNavbarContrast);
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', updateNavbarContrast);
+      window.removeEventListener('resize', updateNavbarContrast);
+    };
   }, []);
 
   useEffect(() => {
@@ -198,7 +240,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
       } else {
         await navMotion.start({
           width: 'auto',
-          padding: '10px 30px',
+          padding: '10px 44px 10px 34px',
           transition: { duration: 0.8, ease: 'easeOut' },
         });
 
@@ -242,6 +284,10 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
     setMobileMenuVisible(false);
   };
 
+  const navLinkClass = isOnLightCard
+    ? 'text-black/85 hover:text-black'
+    : 'text-white/90 hover:text-white';
+
   const renderSubmenuItems = (submenu: React.ReactNode) => {
     if (!React.isValidElement(submenu)) return null;
 
@@ -258,22 +304,23 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
   return (
     <div className={`sticky top-0 z-50 w-full ${styleName}`}>
       <div className='hidden md:block'>
-        <div className='relative w-full max-w-5xl mx-auto h-32 flex items-center justify-between px-4 lg:px-8 -translate-x-[2%]'>
+        <div className='relative w-full max-w-5xl mx-auto h-32 flex items-center px-4 lg:px-8'>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={emblemMotion}
-            className='bg-white/10 dark:bg-white/7 backdrop-blur-xl border-2 border-[#f3de6c]/30 font-neue-montreal text-gray-800 dark:text-gray-200 px-4 lg:px-8 py-3 lg:py-4 rounded-full text-base lg:text-lg z-10 shrink-0'
+            className='bg-white/10 dark:bg-white/7 backdrop-blur-xl border-2 border-[#f3de6c]/30 font-neue-montreal text-gray-800 dark:text-gray-200 px-2 lg:px-3 py-1 rounded-full text-base lg:text-lg z-10 shrink-0'
           >
             {emblem}
           </motion.div>
 
           <motion.nav
+            data-navbar-sensor="true"
             initial={{
               width: '120px',
               padding: '8px 20px',
             }}
             animate={navMotion}
-            className='bg-white/10 dark:bg-white/7 backdrop-blur-xl border-2 border-[#f3de6c]/30 font-neue-montreal rounded-full flex items-center justify-center gap-6 lg:gap-12 z-10 shrink-0'
+            className='absolute left-1/2 -translate-x-1/2 bg-white/10 dark:bg-white/7 backdrop-blur-xl border-2 border-[#f3de6c]/30 font-neue-montreal rounded-full flex items-center justify-center gap-8 lg:gap-14 z-10 shrink-0'
             onMouseLeave={() => setSelectedSubmenu(null)}
           >
             {links.map((element) => (
@@ -293,7 +340,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
                   >
                     <a
                       href={element.url || '#'}
-                      className='text-white/90 text-sm lg:text-lg whitespace-nowrap hover:text-white transition-colors py-1'
+                      className={`${navLinkClass} text-[1.05rem] lg:text-[1.16rem] whitespace-nowrap transition-colors py-1`}
                     >
                       {element.text}
                     </a>
@@ -303,23 +350,25 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
             ))}
           </motion.nav>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={switchMotion}
-            className='bg-white/10 dark:bg-white/7 backdrop-blur-xl border-2 border-[#f3de6c]/30 font-neue-montreal rounded-full p-2 lg:p-3 z-10 shrink-0 flex items-center gap-2 lg:gap-3'
-          >
-            {extraIcons.map((icon, idx) => (
-              <div key={idx} className='flex items-center justify-center'>
-                {icon}
-              </div>
-            ))}
+          {(extraIcons.length > 0 || rightComponent) && (
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={switchMotion}
+              className='bg-white/10 dark:bg-white/7 backdrop-blur-xl border-2 border-[#f3de6c]/30 font-neue-montreal rounded-full p-2 lg:p-3 z-10 shrink-0 flex items-center gap-2 lg:gap-3'
+            >
+              {extraIcons.map((icon, idx) => (
+                <div key={idx} className='flex items-center justify-center'>
+                  {icon}
+                </div>
+              ))}
 
-            {rightComponent && (
-              <div className='flex items-center justify-center'>
-                {rightComponent}
-              </div>
-            )}
-          </motion.div>
+              {rightComponent && (
+                <div className='flex items-center justify-center'>
+                  {rightComponent}
+                </div>
+              )}
+            </motion.div>
+          )}
 
           {showConnections && (
           <motion.svg
@@ -560,7 +609,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
       </div>
 
       <div className='block md:hidden'>
-        <div className='top-0 z-50 w-full border-b-2 border-[#f3de6c]/30 bg-white/10 dark:bg-white/5 backdrop-blur-md supports-backdrop-filter:bg-white/10 dark:supports-backdrop-filter:bg-white/5 relative'>
+        <div data-navbar-sensor="true" className='top-0 z-50 w-full border-b-2 border-[#f3de6c]/30 bg-white/10 dark:bg-white/5 backdrop-blur-md supports-backdrop-filter:bg-white/10 dark:supports-backdrop-filter:bg-white/5 relative'>
           <div className='container flex h-16 max-w-(--breakpoint-2xl) items-center px-4'>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -573,27 +622,29 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
             </motion.div>
 
             <div className='flex flex-1 items-center justify-end space-x-2'>
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={switchMotion}
-                className='flex items-center space-x-2'
-              >
-                {extraIcons.map((icon, idx) => (
-                  <div key={idx} className='flex items-center justify-center'>
-                    {icon}
-                  </div>
-                ))}
+              {(extraIcons.length > 0 || rightComponent) && (
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={switchMotion}
+                  className='flex items-center space-x-2'
+                >
+                  {extraIcons.map((icon, idx) => (
+                    <div key={idx} className='flex items-center justify-center'>
+                      {icon}
+                    </div>
+                  ))}
 
-                {rightComponent && (
-                  <div className='flex items-center justify-center'>
-                    {rightComponent}
-                  </div>
-                )}
-              </motion.div>
+                  {rightComponent && (
+                    <div className='flex items-center justify-center'>
+                      {rightComponent}
+                    </div>
+                  )}
+                </motion.div>
+              )}
 
               <button
                 onClick={toggleMobileMenu}
-                className='flex items-center justify-center w-9 h-9 text-white/90 hover:text-white transition-colors'
+                className={`flex items-center justify-center w-9 h-9 ${navLinkClass} transition-colors`}
               >
                 {mobileMenuVisible ? (
                   <Close className='h-5 w-5' />
@@ -621,7 +672,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
                     {element.submenu ? (
                       <>
                         <button
-                          className='flex items-center justify-between w-full text-white/90 text-base py-2 px-4 rounded-lg hover:bg-white/10 transition-colors border-b-2 border-[#f3de6c]/30'
+                          className={`flex items-center justify-between w-full ${navLinkClass} text-base py-2 px-4 rounded-lg hover:bg-white/10 transition-colors border-b-2 border-[#f3de6c]/30`}
                           onClick={() => toggleSection(element.text)}
                         >
                           <span>{element.text}</span>
@@ -649,7 +700,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
                       <a
                         href={element.url || '#'}
                         onClick={hideMobileMenu}
-                        className='text-white/90 text-base py-2 px-4 rounded-lg hover:bg-white/10 transition-colors border-b-2 border-[#f3de6c]/30 block'
+                        className={`${navLinkClass} text-base py-2 px-4 rounded-lg hover:bg-white/10 transition-colors border-b-2 border-[#f3de6c]/30 block`}
                       >
                         {element.text}
                       </a>

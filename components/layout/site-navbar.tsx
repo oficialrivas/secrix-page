@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import ScrollXHeading from "@/components/heading";
-import ThemeSwitchIcon from "@/components/demos/themeswitchicon";
 import NavbarFlow from "@/components/ui/navbar-flow";
 
 const navLinks = [
@@ -19,11 +18,10 @@ export function SiteNavbar({ className = "z-50" }: { className?: string }) {
       <NavbarFlow
         emblem={
           <Link href="/" aria-label="Ir a inicio" className="cursor-pointer">
-            <ScrollXHeading className="h-8 w-auto sm:h-10" />
+            <ScrollXHeading className="h-16 w-auto sm:h-20" />
           </Link>
         }
         links={navLinks}
-        rightComponent={<ThemeSwitchIcon />}
         showConnections={false}
       />
     </div>

@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/card';
 interface ParallaxCard {
   variant?: 'glass' | 'light';
   content: React.ReactNode;
+  backgroundImage?: string;
 }
 
 interface ParallaxCardsProps {
@@ -34,10 +35,11 @@ export default function ParallaxCards({
         {cards?.map((card, index) => (
           <div key={index} className='sticky top-0 h-[70vh] z-1'>
             <Card
+              data-navbar-invert={card.variant === 'light' ? 'true' : undefined}
               className={
                 card.variant === 'light'
-                  ? 'w-full h-full flex items-center justify-center text-center p-8 rounded-none bg-white border-gray-200/80 shadow-xl shadow-gray-200/50'
-                  : "w-full h-full flex items-center justify-center text-center p-8 rounded-none bg-transparent border-white/[0.06] backdrop-blur-xl shadow-2xl shadow-black/40 relative after:absolute after:inset-0 after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent after:pointer-events-none"
+                  ? 'relative w-full h-full overflow-hidden flex items-center justify-center text-center p-8 rounded-none bg-white border-gray-200/80 shadow-xl shadow-gray-200/50'
+                  : "relative w-full h-full overflow-hidden flex items-center justify-center text-center p-8 rounded-none bg-transparent border-white/[0.06] backdrop-blur-xl shadow-2xl shadow-black/40 after:absolute after:inset-0 after:bg-gradient-to-b after:from-white/[0.03] after:to-transparent after:pointer-events-none"
               }
               style={
                 card.variant === 'light'
@@ -48,7 +50,16 @@ export default function ParallaxCards({
                     }
               }
             >
-              {card.content}
+              {card.backgroundImage ? (
+                <>
+                  <div
+                    className='absolute inset-0 bg-cover bg-center'
+                    style={{ backgroundImage: `url(${card.backgroundImage})` }}
+                  />
+                  <div className='absolute inset-0 bg-black/45' />
+                </>
+              ) : null}
+              <div className='relative z-10 h-full w-full'>{card.content}</div>
             </Card>
           </div>
         ))}

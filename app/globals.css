@@ -312,13 +312,13 @@ body {
 }
 
 .project {
-  height: min(72dvh, 46rem);
-  left: 50%;
+  height: min(66dvh, 40rem);
+  left: 26%;
   overflow: hidden;
   position: absolute;
-  top: 50%;
+  top: 53%;
   transform: translate(-50%, -50%);
-  width: min(72vw, 58rem);
+  width: min(36vw, 32rem);
   will-change: transform;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 2rem;
@@ -348,11 +348,12 @@ body {
 }
 
 .minimap {
-  bottom: clamp(2rem, 5vw, 4rem);
-  left: 50%;
+  height: min(66dvh, 40rem);
+  left: 55%;
   position: absolute;
-  transform: translateX(-50%);
-  width: min(86vw, 52rem);
+  top: 53%;
+  transform: translateY(-50%);
+  width: min(39vw, 42rem);
   z-index: 6;
 }
 
@@ -361,7 +362,7 @@ body {
   display: grid;
   gap: 1.25rem;
   grid-template-columns: 1fr;
-  height: 230px;
+  height: 100%;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
@@ -371,16 +372,16 @@ body {
 }
 
 .minimap-info-list {
-  height: 200px;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
 
 .minimap-item-info {
-  height: 200px;
+  height: 100%;
   left: 0;
   position: absolute;
-  top: 0;
+  top: 50%;
   width: 100%;
   will-change: transform;
 }
@@ -389,7 +390,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 0;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
 }
 
 .minimap-item-info-row {
@@ -404,7 +405,7 @@ body {
 .minimap-item-info-row p {
   color: rgba(248, 250, 252, 0.84);
   font-family: var(--font-neue-montreal), system-ui, sans-serif;
-  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  font-size: clamp(0.76rem, 1vw, 0.95rem);
   letter-spacing: 0.02em;
   margin: 0;
 }
@@ -412,20 +413,20 @@ body {
 .minimap-item-info-row:first-child p:nth-child(2) {
   color: white;
   font-family: var(--font-neue-montreal-medium), system-ui, sans-serif;
-  font-size: clamp(1.35rem, 2.65vw, 2.35rem);
+  font-size: clamp(2.1rem, 4vw, 4.5rem);
   letter-spacing: -0.04em;
 }
 
 .minimap-item-info-row:nth-child(2) p {
   color: rgba(213, 180, 57, 0.92);
   font-family: var(--font-neue-montreal-medium), system-ui, sans-serif;
-  font-size: clamp(0.82rem, 1.1vw, 1rem);
+  font-size: clamp(1rem, 1.35vw, 1.35rem);
 }
 
 .minimap-item-info-row:last-child p {
   color: rgba(248, 250, 252, 0.66);
-  font-size: clamp(0.74rem, 0.95vw, 0.9rem);
-  line-height: 1.45;
+  font-size: clamp(0.94rem, 1.12vw, 1.08rem);
+  line-height: 1.62;
   max-width: 62rem;
 }
 
@@ -433,30 +434,109 @@ body {
   border-bottom: 0;
 }
 
+.minimap-more-button {
+  align-self: flex-start;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.42);
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  font-family: var(--font-neue-montreal-medium), system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  margin-top: 0.75rem;
+  padding: 0 0 0.18rem;
+  text-transform: uppercase;
+  transition: border-color 180ms ease, color 180ms ease, opacity 180ms ease;
+}
+
+.minimap-more-button:hover {
+  border-color: rgba(243, 222, 108, 0.78);
+  color: #ffffff;
+}
+
+.minimap-extra-info {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-0.35rem);
+  transition: max-height 300ms ease, opacity 220ms ease, transform 300ms ease;
+}
+
+.minimap-extra-info.is-open {
+  max-height: 12rem;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.minimap-extra-info p {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(248, 250, 252, 0.72);
+  font-family: var(--font-neue-montreal), system-ui, sans-serif;
+  font-size: clamp(0.82rem, 1vw, 0.98rem);
+  line-height: 1.55;
+  margin: 0.85rem 0 0;
+  padding-top: 0.85rem;
+}
+
 @media (max-width: 640px) {
   .minimap {
     bottom: 1.25rem;
+    height: 32dvh;
     left: 1rem;
     right: 1rem;
+    top: auto;
     transform: none;
     width: auto;
   }
 
   .project {
-    height: 64dvh;
+    height: 54dvh;
+    left: 50%;
+    top: 38%;
     width: calc(100vw - 2rem);
     border-radius: 1.35rem;
   }
 
   .minimap-wrapper {
     grid-template-columns: 1fr;
-    height: 220px;
+    height: 100%;
     padding: 0.65rem;
   }
 
   .minimap-info-list,
   .minimap-item-info {
-    height: 190px;
+    height: 100%;
+  }
+
+  .minimap-item-info {
+    top: 50%;
+    padding: 0.8rem;
+  }
+
+  .minimap-item-info-row:first-child p:nth-child(2) {
+    font-size: clamp(1.35rem, 8vw, 2.2rem);
+  }
+
+  .minimap-item-info-row:last-child p {
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .minimap-more-button {
+    font-size: 0.68rem;
+    margin-top: 0.45rem;
+  }
+
+  .minimap-extra-info.is-open {
+    max-height: 8rem;
+  }
+
+  .minimap-extra-info p {
+    font-size: 0.72rem;
+    line-height: 1.32;
+    margin-top: 0.55rem;
+    padding-top: 0.55rem;
   }
 }
 

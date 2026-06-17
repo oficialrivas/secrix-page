@@ -6,7 +6,7 @@ import { AboutCards } from "@/components/sections/about-cards";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Strategic Security & Risk Management Across the Americas — Secrisk International",
+    "International security and risk management firm headquartered in Miami, delivering intelligence-led protection across the Americas and beyond.",
 };
 
 export default function AboutPage() {

@@ -28,9 +28,6 @@ const reveal = {
 };
 
 export function BlogIndex({ articles }: { articles: Article[] }) {
-  const featured = articles.slice(0, 2);
-  const recent = articles.slice(2);
-
   return (
     <motion.div
       className="relative mx-auto max-w-7xl"
@@ -48,22 +45,11 @@ export function BlogIndex({ articles }: { articles: Article[] }) {
         Articles and field notes for organizations operating in complex environments.
       </motion.p>
 
-      <motion.div variants={reveal} className="mt-16 grid gap-x-8 gap-y-28 md:grid-cols-2">
-        {featured.map((article) => (
-          <BlogCard key={article.id} article={article} large />
+      <motion.div variants={reveal} className="mt-16 grid gap-x-8 gap-y-28 md:grid-cols-3">
+        {articles.map((article) => (
+          <BlogCard key={article.id} article={article} />
         ))}
       </motion.div>
-
-      {recent.length > 0 && (
-        <motion.div variants={reveal}>
-          <h2 className="mb-8 mt-32 text-3xl font-neue-montreal-medium text-white">Recent</h2>
-          <div className="grid gap-x-8 gap-y-28 md:grid-cols-3">
-            {recent.map((article) => (
-              <BlogCard key={article.id} article={article} />
-            ))}
-          </div>
-        </motion.div>
-      )}
     </motion.div>
   );
 }
