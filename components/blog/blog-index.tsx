@@ -35,17 +35,17 @@ export function BlogIndex({ articles }: { articles: Article[] }) {
       initial="hidden"
       animate="show"
     >
-      <motion.p variants={reveal} className="mb-4 text-sm uppercase tracking-[0.32em] text-[#d5b439]">
+      <motion.p variants={reveal} className="mb-2 sm:mb-2 text-[10px] sm:text-xs uppercase tracking-[0.32em] text-[#d5b439]">
         Secrix Journal
       </motion.p>
-      <motion.h1 variants={reveal} className="max-w-4xl text-5xl font-neue-montreal-medium tracking-tight md:text-7xl">
+      <motion.h1 variants={reveal} className="max-w-4xl text-2xl sm:text-3xl md:text-6xl font-neue-montreal-medium tracking-tight">
         Intelligence, security and operational risk insights.
       </motion.h1>
-      <motion.p variants={reveal} className="mt-6 max-w-2xl text-lg leading-8 text-white/60">
+      <motion.p variants={reveal} className="mt-4 sm:mt-6 max-w-2xl text-xs sm:text-sm md:text-base leading-7 text-white/60">
         Articles and field notes for organizations operating in complex environments.
       </motion.p>
 
-      <motion.div variants={reveal} className="mt-16 grid gap-x-8 gap-y-28 md:grid-cols-3">
+      <motion.div variants={reveal} className="mt-8 sm:mt-10 grid gap-x-5 sm:gap-x-6 gap-y-12 sm:gap-y-16 md:grid-cols-3">
         {articles.map((article) => (
           <BlogCard key={article.id} article={article} />
         ))}

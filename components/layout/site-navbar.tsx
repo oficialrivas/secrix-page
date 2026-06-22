@@ -14,11 +14,11 @@ const navLinks = [
 
 export function SiteNavbar({ className = "z-50" }: { className?: string }) {
   return (
-    <div className={`fixed top-[3%] left-0 right-0 ${className}`}>
+    <div className={`fixed top-[4%] sm:top-[3%] left-0 right-0 ${className}`}>
       <NavbarFlow
         emblem={
           <Link href="/" aria-label="Ir a inicio" className="cursor-pointer">
-            <ScrollXHeading className="h-16 w-auto sm:h-20" />
+            <ScrollXHeading className="h-12 w-auto sm:h-20" />
           </Link>
         }
         links={navLinks}

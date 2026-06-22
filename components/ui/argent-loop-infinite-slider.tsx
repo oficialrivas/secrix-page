@@ -4,8 +4,9 @@
 /* eslint-disable @next/next/no-img-element */
 
 import * as React from "react";
+import { ProfileModal } from "./profile-modal";
 
-interface ProjectData {
+export interface ProjectData {
   name: string;
   image: string;
   role: string;
@@ -36,7 +37,7 @@ const PROJECT_DATA: ProjectData[] = [
     details: "He oversees service delivery standards and the implementation of client-focused security solutions. His experience in Latin America includes security audits, investigations, cash-in-transit risk, and critical infrastructure protection, strengthened by his UAS/ISR capabilities.",
   },
   {
-    image: "/opcion%209.png",
+    image: "/ultima.png",
     name: "Julio Rodriguez",
     role: "Director of Global Security & Risk Compliance",
     summary: "30+ years in diplomatic security and compliance (U.S. and LATAM). Former Chief of Protection for U.S. Ambassador in Dominican Republic (State Dept, Bureau of Diplomatic Security). Certifications: BASC, OEA, CTPAT, ISPS. Led large-scale security operations, physical/electronic projects, and enterprise risk programs. Structured approach: translates complex regulatory requirements into scalable operational solutions.",
@@ -109,7 +110,7 @@ const getProjectNumber = (index: number) => {
 };
 
 export function Component() {
-  const [expandedProfile, setExpandedProfile] = React.useState<string | null>(null);
+  const [modalData, setModalData] = React.useState<ProjectData | null>(null);
   const [visibleRange, setVisibleRange] = React.useState({
     min: -CONFIG.BUFFER_SIZE,
     max: CONFIG.BUFFER_SIZE,
@@ -378,28 +379,24 @@ export function Component() {
                   </div>
                   <button
                     className="minimap-more-button"
-                    onClick={() =>
-                      setExpandedProfile((current) =>
-                        current === data.name ? null : data.name
-                      )
-                    }
+                    onClick={() => setModalData(data)}
                     type="button"
                   >
-                    {expandedProfile === data.name ? "Show less" : "Learn more"}
+                    Learn more
                   </button>
-                  <div
-                    className={`minimap-extra-info ${
-                      expandedProfile === data.name ? "is-open" : ""
-                    }`}
-                  >
-                    <p>{data.details}</p>
-                  </div>
                 </div>
               );
             })}
           </div>
         </div>
       </div>
+      {modalData && (
+        <ProfileModal
+          isOpen={!!modalData}
+          onClose={() => setModalData(null)}
+          data={modalData}
+        />
+      )}
     </div>
   );
 }

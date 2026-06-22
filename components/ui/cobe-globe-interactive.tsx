@@ -24,6 +24,14 @@ const defaultMarkers: InteractiveMarker[] = [
   { id: "brasil", location: [-15.79, -47.88], name: "Brasil", detail: "Active node" },
   { id: "republica-dominicana", location: [18.49, -69.93], name: "Republica Dominicana", detail: "Active node" },
   { id: "espana", location: [40.42, -3.7], name: "Espana", detail: "Active node" },
+  { id: "egypt", location: [30.04, 31.23], name: "Egypt", detail: "Active node" },
+  { id: "uganda", location: [0.34, 32.58], name: "Uganda", detail: "Active node" },
+  { id: "chile", location: [-33.45, -70.66], name: "Chile", detail: "Active node" },
+  { id: "mexico", location: [19.43, -99.13], name: "Mexico", detail: "Active node" },
+  { id: "ecuador", location: [-0.18, -78.46], name: "Ecuador", detail: "Active node" },
+  { id: "argentina", location: [-34.60, -58.38], name: "Argentina", detail: "Active node" },
+  { id: "ghana", location: [5.60, -0.19], name: "Ghana", detail: "Active node" },
+  { id: "panama", location: [8.98, -79.52], name: "Panama", detail: "Active node" },
 ];
 
 export function GlobeInteractive({ markers = defaultMarkers, className = "", speed = 0.003 }: GlobeInteractiveProps) {

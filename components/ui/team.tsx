@@ -20,7 +20,7 @@ const teamMembers = [
     role: "Vice President Of Operations",
   },
   {
-    image: "/opcion%209.png",
+    image: "/julio%20cabeza%20peque%C3%B1a.png",
     name: "Julio Rodriguez",
     role: "Director of Global Security & Risk Compliance",
   },
@@ -40,7 +40,7 @@ const teamMembers = [
     role: "Director special projects",
   },
   {
-    image: "/opcion%205.1.png",
+    image: "/lutato%20cabeza%20peq.png",
     name: "Lutalo Muhummud",
     role: "Associate partner - East Africa",
   },
@@ -53,7 +53,7 @@ const teamMembers = [
 
 function TeamMarquee({ children }: { children: React.ReactNode }) {
   return (
-    <div className="group flex overflow-hidden [--duration:35s] [--gap:1.5rem]">
+    <div className="group flex overflow-hidden [--duration:35s] [--gap:1.5rem] sm:[--gap:1.5rem]">
       <div className="flex min-w-full shrink-0 animate-marquee items-center gap-[var(--gap)] pr-[var(--gap)] group-hover:[animation-play-state:paused]">
         {children}
       </div>
@@ -69,13 +69,13 @@ function TeamMarquee({ children }: { children: React.ReactNode }) {
 
 export default function Team() {
   return (
-    <section className="relative w-full overflow-hidden bg-transparent pb-12 pt-24 md:pb-24 md:pt-36">
+    <section className="relative w-full overflow-hidden bg-transparent pb-8 pt-12 md:pb-24 md:pt-36">
       <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="mx-auto mb-[11rem] flex max-w-5xl flex-col items-center px-6 text-center lg:px-0">
-          <h1 className="relative mb-8 font-medium text-5xl text-neutral-100 tracking-tight sm:text-6xl md:text-7xl">
+        <div className="mx-auto mb-8 sm:mb-[11rem] flex max-w-5xl flex-col items-center px-6 text-center lg:px-0">
+          <h1 className="relative mb-6 sm:mb-8 font-medium text-3xl sm:text-5xl md:text-7xl text-neutral-100 tracking-tight">
             Leadership &amp; Expertise
           </h1>
-          <p className="max-w-4xl text-xl leading-9 text-neutral-300 sm:text-2xl md:text-3xl md:leading-10">
+          <p className="max-w-4xl text-lg sm:text-xl md:text-3xl leading-8 sm:leading-9 md:leading-10 text-neutral-300">
             Meet the professionals behind Secrisk&apos;s global security,
             intelligence, and risk management operations.
           </p>
@@ -87,23 +87,23 @@ export default function Team() {
 
           <TeamMarquee>
             {teamMembers.map((member) => (
-              <div className="group/card flex w-64 shrink-0 flex-col" key={member.name}>
-                <div className="relative h-[23rem] w-full overflow-hidden rounded-2xl bg-white ring-1 ring-[#f3de6c]/30">
+              <div className="group/card flex w-[260px] sm:w-64 shrink-0 flex-col mx-auto" key={member.name}>
+                <div className="relative h-[20rem] sm:h-[23rem] w-full overflow-hidden rounded-2xl bg-[#0b1129] ring-1 ring-[#f3de6c]/30">
                   <Image
                     alt={member.name}
-                    className="h-full w-full object-cover grayscale transition-all duration-300 group-hover/card:grayscale-0"
+                    className={`h-full w-full object-cover object-center grayscale transition-all duration-300 group-hover/card:grayscale-0 ${member.name === "Julio Rodriguez" ? "scale-[1.25] object-center" : member.name === "Lutalo Muhummud" ? "scale-125 object-center" : ""}`}
                     fill
                     sizes="256px"
                     src={member.image}
                   />
-                  <div className="absolute bottom-0 w-full bg-white/90 p-2 backdrop-blur-sm">
-                    <h3 className="font-semibold text-neutral-900">
-                      {member.name}
-                    </h3>
-                    <p className="text-neutral-600 text-sm">
-                      {member.role}
-                    </p>
-                  </div>
+                </div>
+                <div className="px-3 py-2 text-center">
+                  <h3 className="font-semibold text-sm text-neutral-100 line-clamp-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs text-neutral-400 line-clamp-1">
+                    {member.role}
+                  </p>
                 </div>
               </div>
             ))}

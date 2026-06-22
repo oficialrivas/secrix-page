@@ -134,10 +134,10 @@ export const FeatureItem: React.FC<FeatureItemProps> = ({
     <a
       href={url}
       onClick={onPress}
-      className='block p-3 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors'
+      className='block p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors'
     >
-      <h4 className='font-medium text-gray-900 dark:text-white'>{heading}</h4>
-      <p className='text-sm text-gray-600 dark:text-gray-400 mt-1'>{info}</p>
+      <h4 className='font-medium text-sm text-gray-900 dark:text-white'>{heading}</h4>
+      <p className='text-xs text-gray-600 dark:text-gray-400 mt-0.5'>{info}</p>
     </a>
   );
 };
@@ -340,7 +340,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
                   >
                     <a
                       href={element.url || '#'}
-                      className={`${navLinkClass} text-[1.05rem] lg:text-[1.16rem] whitespace-nowrap transition-colors py-1`}
+                      className={`${navLinkClass} text-[1rem] lg:text-[1.1rem] whitespace-nowrap transition-colors py-1 ml-2 lg:ml-4`}
                     >
                       {element.text}
                     </a>
@@ -609,14 +609,14 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
       </div>
 
       <div className='block md:hidden'>
-        <div data-navbar-sensor="true" className='top-0 z-50 w-full border-b-2 border-[#f3de6c]/30 bg-white/10 dark:bg-white/5 backdrop-blur-md supports-backdrop-filter:bg-white/10 dark:supports-backdrop-filter:bg-white/5 relative'>
-          <div className='container flex h-16 max-w-(--breakpoint-2xl) items-center px-4'>
+        <div data-navbar-sensor="true" className='top-0 z-50 w-full border-b border-[#f3de6c]/20 bg-[rgba(6,10,22,0.85)] backdrop-blur-xl supports-backdrop-filter:bg-[rgba(6,10,22,0.85)] relative'>
+          <div className='flex h-14 max-w-(--breakpoint-2xl) items-center px-4'>
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={emblemMotion}
-              className='mr-4 shrink-0'
+              className='mr-3 shrink-0'
             >
-              <div className='bg-white/15 dark:bg-white/10 backdrop-blur-md border border-white/20 shadow-lg shadow-white/5 font-neue-montreal text-gray-800 dark:text-gray-200 px-4 py-2 rounded-full text-base'>
+              <div className='font-neue-montreal text-white px-3 py-1.5 rounded-full text-sm'>
                 {emblem}
               </div>
             </motion.div>
@@ -644,12 +644,12 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
 
               <button
                 onClick={toggleMobileMenu}
-                className={`flex items-center justify-center w-9 h-9 ${navLinkClass} transition-colors`}
+                className='flex items-center justify-center w-10 h-10 text-white/90 hover:text-white transition-colors rounded-lg hover:bg-white/10'
               >
                 {mobileMenuVisible ? (
-                  <Close className='h-5 w-5' />
+                  <Close className='h-6 w-6' />
                 ) : (
-                  <List className='h-5 w-5' />
+                  <List className='h-6 w-6' />
                 )}
                 <span className='sr-only'>Toggle menu</span>
               </button>
@@ -663,16 +663,16 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
               maxHeight: mobileMenuVisible ? '80vh' : 0,
             }}
             transition={{ duration: 0.3 }}
-            className='absolute left-0 right-0 top-full z-40 overflow-y-auto border-t-2 border-[#f3de6c]/30 bg-white/10 dark:bg-white/5 backdrop-blur-md'
+            className='absolute right-[16px] max-w-[280px] top-full z-40 overflow-y-auto border-b border-[#f3de6c]/20 bg-[rgba(6,10,22,0.95)] backdrop-blur-xl rounded-b-xl'
           >
-            <div className='container py-4 px-4'>
-              <nav className='flex flex-col space-y-3 font-neue-montreal'>
+            <div className='py-3 px-4'>
+              <nav className='flex flex-col space-y-1 font-neue-montreal'>
                 {links.map((element, idx) => (
-                  <div key={element.text} className='space-y-2'>
+                  <div key={element.text}>
                     {element.submenu ? (
                       <>
                         <button
-                          className={`flex items-center justify-between w-full ${navLinkClass} text-base py-2 px-4 rounded-lg hover:bg-white/10 transition-colors border-b-2 border-[#f3de6c]/30`}
+                          className='flex items-center justify-between w-full text-white/80 hover:text-white text-sm py-2.5 px-3 rounded-lg hover:bg-white/10 transition-colors'
                           onClick={() => toggleSection(element.text)}
                         >
                           <span>{element.text}</span>
@@ -700,7 +700,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
                       <a
                         href={element.url || '#'}
                         onClick={hideMobileMenu}
-                        className={`${navLinkClass} text-base py-2 px-4 rounded-lg hover:bg-white/10 transition-colors border-b-2 border-[#f3de6c]/30 block`}
+                        className='text-white/80 hover:text-white text-sm py-2.5 px-3 rounded-lg hover:bg-white/10 transition-colors block'
                       >
                         {element.text}
                       </a>

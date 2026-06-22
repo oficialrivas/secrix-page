@@ -6,8 +6,8 @@ import { motion } from "motion/react";
 
 export function MapDemoSection() {
   return (
-    <section className="relative w-full pb-24 pt-6 md:pb-32 md:pt-10">
-      <div className="container mx-auto px-6">
+    <section className="relative w-full pb-16 sm:pb-20 md:pb-32 pt-2 sm:pt-4 md:pt-10">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="mx-auto max-w-3xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -21,7 +21,7 @@ export function MapDemoSection() {
               gradientAnimationDuration={1.8}
               hoverEffect={false}
               className="py-0"
-              textClassName="whitespace-nowrap text-center font-neue-montreal-medium text-[2rem] sm:text-[2.7rem] md:text-6xl tracking-wide leading-tight"
+              textClassName="whitespace-nowrap text-center font-neue-montreal-medium text-[1.5rem] xs:text-[1.75rem] sm:text-[2.25rem] md:text-5xl tracking-wide leading-tight"
             />
           </motion.div>
           <motion.p
@@ -29,13 +29,13 @@ export function MapDemoSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.45 }}
             transition={{ duration: 1.55, ease: [0.16, 1, 0.3, 1], delay: 0.22 }}
-            className="mx-auto max-w-3xl pt-16 text-xl font-neue-montreal leading-relaxed text-white/55 md:pt-20 md:text-[2.15rem]"
+            className="mx-auto max-w-3xl pt-8 sm:pt-10 text-sm sm:text-base md:text-lg font-neue-montreal-light leading-relaxed text-white/55 md:pt-12 md:text-xl"
           >
             We map operational connections across critical regions to anticipate risk,
             coordinate response, and sustain continuity with strategic precision.
           </motion.p>
         </div>
-        <div className="mx-auto mt-20 flex max-w-3xl justify-center md:mt-24">
+        <div className="mx-auto mt-10 sm:mt-14 flex max-w-3xl justify-center md:mt-16">
           <div className="relative w-full max-w-[34rem]">
             <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(213,180,57,0.16),transparent_62%)] blur-2xl" />
             <GlobeInteractive className="relative z-10 mx-auto w-full" />

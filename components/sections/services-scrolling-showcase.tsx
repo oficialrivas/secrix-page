@@ -115,7 +115,7 @@ export function ServicesScrollingShowcase() {
           style={dynamicStyles}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 h-full w-full max-w-7xl mx-auto">
-            <div className="relative flex flex-col justify-center p-8 md:p-16 border-r border-white/10">
+            <div className="relative grid grid-rows-[1fr_auto_1fr] h-full p-8 md:p-16">
               <div className="absolute top-16 left-8 md:left-16 flex space-x-2">
                 {slidesData.map((_, index) => (
                   <button
@@ -162,7 +162,7 @@ export function ServicesScrollingShowcase() {
                 ))}
               </div>
 
-              <div className="absolute bottom-40 left-8 md:bottom-48 md:left-16">
+              <div className="absolute bottom-52 left-8 md:bottom-60 md:left-16">
                 <a
                   href="/contacto"
                   className="px-8 py-3 border border-[#f3de6c]/35 bg-[#d5b439]/12 text-[#f3de6c] font-neue-montreal-medium rounded-full uppercase tracking-[0.1em] hover:bg-[#d5b439]/22 transition-colors"
@@ -172,8 +172,8 @@ export function ServicesScrollingShowcase() {
               </div>
             </div>
 
-            <div className="hidden md:flex items-center justify-center p-8" style={gridPatternStyle}>
-              <div className="relative w-[62%] h-[78vh] rounded-[28px] overflow-hidden shadow-2xl shadow-black/40 border border-white/[0.08]">
+            <div className="hidden md:flex items-start justify-center h-[85vh] pt-12">
+              <div className="relative w-full h-full overflow-hidden">
                 <div
                   className="absolute top-0 left-0 w-full h-full transition-transform duration-700 ease-in-out"
                   style={{ transform: `translateY(-${activeIndex * 100}%)` }}

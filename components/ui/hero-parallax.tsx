@@ -18,7 +18,7 @@ export const HeroParallax = ({
   return (
     <div className="py-10 md:py-16 overflow-hidden antialiased relative">
       {header && <div className="absolute top-0 left-0 w-full z-20 pointer-events-auto">{header}</div>}
-      <div className="pt-[112vh] sm:pt-[102vh] md:pt-[94vh]">
+      <div className="pt-[80vh] sm:pt-[118vh] md:pt-[94vh]">
         <Team />
       </div>
     </div>

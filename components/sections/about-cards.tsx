@@ -39,7 +39,7 @@ const cardData: {
   {
     title: "Regional Presence",
     description:
-      "With headquarters in Miami and regional offices in Mexico, Brazil, Peru, Ecuador, Venezuela, Colombia, Argentina, and the Dominican Republic.",
+      "With headquarters in Miami and regional offices in Mexico, Brazil, Peru, Ecuador, Venezuela, Colombia, Argentina, the Dominican Republic, Chile, and Panama, plus operational presence in Spain, Egypt, Uganda, and Ghana.",
     icon: <Building2 />,
     variant: "light",
     iconBorder: "border-[#70663c]/35 bg-[#d5b439]/12",

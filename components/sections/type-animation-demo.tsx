@@ -22,7 +22,7 @@ export default function TypeAnimationDemo() {
             >
               <div className="w-full h-full flex flex-col items-center justify-center text-center">
                 <p className="text-3xl sm:text-4xl font-neue-montreal-medium text-white/90 leading-none">
-                  247+
+                  5000+
                 </p>
                 <p className="text-xs sm:text-sm font-neue-montreal-light text-white/50 mt-1 leading-tight">
                   Risk Assessments Conducted
